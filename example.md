@@ -114,6 +114,9 @@ end
 <dd>Green</dd>
 </dl>
 
+Flourish html embed example
+<div class="flourish-embed flourish-chart" data-src="visualisation/26654614"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26654614/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+
 ```
 Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
 ```
