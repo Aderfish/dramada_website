@@ -7,3 +7,24 @@
 **Important**: Please include ```--- layout: default ---``` (the first three line in `example.md`) at the beginning of your every newly created `.md` file.
 5. Add your new `.md` files to the site by editing the `_config.yml` file in your forked repository. Under `navigation:` add a new pair of `- title:` and `url:`, and fill their value with your page name and `.md` file name. Remember to remove the `- title:` and `url:` pair for the example page.
 6. Go back to "Settings" -> "Pages" to find your website link.
+
+## Local setup
+Install ruby
+
+`sudo apt install ruby-full gem`
+
+Install bundle and jekyll from gem
+
+`sudo gem install bundle jekyll`
+
+Setup path for libraries for this project
+
+`bundle config set path vendor/bundle`
+
+Install dependencies
+
+`bundle install`
+
+Compile and host site locally
+
+`bundle exec jekyll serve`
