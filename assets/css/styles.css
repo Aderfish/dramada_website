@@ -6,6 +6,15 @@ body {
   font-weight:400;
 }
 
+.wrapper {
+  padding-top: 500px;
+
+    background-image: url('/assets/img/background.jpeg');
+  background-size: auto 500px;
+  background-repeat: no-repeat;
+  background-attachment: top center;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
