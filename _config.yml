@@ -20,8 +20,11 @@ author: Dramada Team
 ###############################################
 
 navbar-links:
-  TODO: "aboutme"
-  Author's home: "https://deanattali.com"
+  # TODO: "aboutme"
+  # Author's home: "https://deanattali.com"
+  Dataset: /#dataset 
+  Analysis: /#analysis
+  Conclusion: /#conclusion
 
 ################
 # --- Logo --- #
