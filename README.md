@@ -2,6 +2,9 @@
 
 Website is at [https://aderfish.github.io/dramada_website](https://aderfish.github.io/dramada_website/).
 
+## Repo structure
+Main page is `index.md`, modify it to add content or analyses.
+
 ## Local setup
 Here are the steps to run the website locally for development.
 Install ruby
