@@ -2,31 +2,31 @@
   surname: Montlahuc
   role: Data Analyst
   photo: /assets/img/avatar-icon.png
-  github: https://github.com/alice
+  github: https://github.com/louise-montlahuc
 
 - name: Timur 
   surname: Ünver
   role: Backend Developer
   photo: /assets/img/avatar-icon.png
-  github: https://github.com/bob
+  github: https://github.com/timurunv
   
 - name: Youri 
   surname: Gandel
   role: Data Analyst
   photo: /assets/img/avatar-icon.png
-  github: https://github.com/alice
+  github: https://github.com/yourigndl
 
-- name: Albert 
+- name: Alberts
   surname: Reisons
   role: Backend Developer
   photo: /assets/img/avatar-icon.png
-  github: https://github.com/bob
+  github: https://github.com/Aderfish
 
 - name: Anna-Christina 
   surname: Currat
   role: Data Analyst
   photo: /assets/img/avatar-icon.png
-  github: https://github.com/alice
+  github: https://github.com/acurrat
 
 - name: Gorilla
   surname: Jungle
