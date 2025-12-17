@@ -3,6 +3,7 @@ layout: null
 ---
 
 @import url("pygment_highlights.css");
+@import url("reddit.css");
 
 :root {
   /* config file CSS variables */
