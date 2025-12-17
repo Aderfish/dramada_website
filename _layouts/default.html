@@ -2,6 +2,11 @@
 layout: base
 ---
 
+<div class="intro-header">
+  {% if page.header-image %}
+    <img src="{{ page.header-image }}" alt="Header Image" class="header-image">
+  {% endif %}
+
 <div class="intro-header"></div>
 
 <main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">

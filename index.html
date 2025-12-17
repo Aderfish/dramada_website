@@ -1,0 +1,440 @@
+---
+layout: default
+title: Community Thread — Data Analysis
+title-img: /assets/img/dramada.png
+header-image: /assets/img/banner.png
+footer-extra:
+ - team.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Thread — Data Analysis</title>
+
+  <style>
+    :root{
+      --bg:#f6f7f9;
+      --card:#ffffff;
+      --card2:#f9fafb;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --accent:#2563eb;
+      --good:#16a34a;
+      --warn:#ca8a04;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background: var(--bg);
+      color:var(--text);
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    /* .logo{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      box-shadow: 0 6px 18px rgba(37,99,235,.25);
+    } */
+
+    .logo{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background-image: url("/assets/img/avatar-icon.png");
+      background-size: cover;        /* fill the box */
+      background-position: center;   /* center the image */
+      background-repeat: no-repeat;
+      box-shadow: 0 6px 18px rgba(37,99,235,.25);
+    }
+
+    .title{ font-weight:700; }
+    .subtitle{ color:var(--muted); font-size:.9rem; }
+
+    .pillbar{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.85rem;
+      background:#fff;
+    }
+
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .explanation{
+      color: #fff;
+      margin-top:16px;
+      padding:14px;
+      border-radius:14px;
+      border:1px dashed var(--line);
+      background: rgba(255, 69, 0, 0.9);
+    }
+
+    .post{
+      display:grid;
+      grid-template-columns: 64px 1fr;
+      gap:14px;
+      padding: 16px;
+    }
+
+    .post2{
+      display:block;
+      grid-template-columns: 64px 1fr;
+      gap:14px;
+      padding: 16px;
+    }
+
+    .vote{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      color:var(--muted);
+    }
+
+    .vote button{
+      all:unset;
+      cursor:pointer;
+      width:38px;
+      height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      background:#f9fafb;
+    }
+
+    .score{
+      font-weight:700;
+      color:var(--text);
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      font-size:.9rem;
+    }
+
+    .community{
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    h1{
+      margin: 8px 0 10px;
+      font-size:1.4rem;
+    }
+
+    .content p{
+      margin:8px 0;
+    }
+
+    .section{
+      margin-top:16px;
+      padding:14px;
+      border-radius:14px;
+      border:1px dashed var(--line);
+      background:#f9fafb;
+    }
+
+    .section h2{
+      margin:0 0 8px;
+      font-size:1rem;
+    }
+
+    .code{
+      font-family:var(--mono);
+      font-size:.9rem;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:12px;
+      overflow:auto;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12,1fr);
+      gap:12px;
+    }
+
+    .kpi{
+      grid-column: span 4;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    .kpi .n{
+      font-size:1.3rem;
+      font-weight:800;
+    }
+
+    .kpi .l{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .thread{
+      margin-top:18px;
+      padding:16px;
+    }
+
+    .comment{
+      display:grid;
+      grid-template-columns: 30px 1fr;
+      gap:12px;
+      padding:12px 10px;
+    }
+
+    .comment + .comment{
+      margin-top:10px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+
+    .avatar{
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      background:#e5e7eb;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      /* fills the div while keeping aspect ratio */
+    }
+
+    .cmeta{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      font-size:.85rem;
+    }
+
+    .user{ font-weight:700; }
+
+    .body{
+      margin-top:6px;
+    }
+
+    .indent{
+      margin-left:42px;
+      border-left:2px solid var(--line);
+      padding-left:14px;
+      margin-top:10px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <div class="logo"></div>
+    <div>
+      <div class="title">r/DataAnalysisCommunity</div>
+      <div class="subtitle">Explaining the influence of the 2016 US election</div>
+    </div>
+  </div>
+  <div class="pillbar">
+    <div class="pill">Team: <strong>dramADA</strong></div>
+    <div class="pill">Project: <strong>Reddit Wars</strong></div>
+  </div>
+</header>
+
+<article class="card post">
+  <div class="vote">
+    <button>▲</button>
+    <div class="score">4.2k</div>
+    <button>▼</button>
+  </div>
+
+  <div class="content">
+    <div class="meta">
+      <span class="community">r/DataAnalysisCommunity</span>
+      <span>• Posted by <strong>u/dramADA</strong></span>
+    </div>
+
+    <h1>We analyzed 120k Reddit posts: topics, sentiment, and what drives engagement</h1>
+
+    <p>
+      Hello everyone! Me and my team analysed reddit data from 2014 to 2017, looking at posts' hyperlinks.
+      We wanted to look at how online activity and behavior changed during the 2016 election, and you won't believe what we found!
+    </p>
+
+    <div class="section">
+      <h2>Quick summary</h2>
+      <div class="grid">
+        <div class="kpi"><div class="n">120k</div><div class="l">Posts</div></div>
+        <div class="kpi"><div class="n">20k</div><div class="l">Subreddits</div></div>
+        <div class="kpi"><div class="n">+4</div><div class="l">Years</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Analysis pipeline</h2>
+      <div class="code">
+1) Data collection<br>
+2) Cleaning & filtering<br>
+3) Feature extraction (NLP)<br>
+4) Topic modeling<br>
+5) Sentiment analysis<br>
+6) Visualization & interpretation
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="card thread">
+  <h2>Top comments</h2>
+  <div class="subtitle">And research questions</div>
+
+  <div class="comment">
+    <div class="avatar">
+      <img src="/assets/img/404-southpark.jpg" alt="Avatar">
+    </div>
+    <div>
+      <div class="cmeta">
+        <span class="user">u/Karen</span>
+        <span>• 8 hours ago</span>
+      </div>
+      <div class="body">
+        Wow amazing! I am a social media manager and I would love your insight!
+        Does my client have a chance to come back up in the polls before the elections?
+      </div>
+
+      <div class="indent">
+        <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+          <div class="avatar" style="width:26px;height:26px;">
+            <img src="/assets/img/path.jpg" alt="Avatar">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/John</span>
+              <span>• 2 hours ago</span>
+            </div>
+            <div class="body">
+              Relax Karen, we cannot predict the future. I can help you but it’s not going to be easy…
+              Let me present my results first
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="comment">
+    <div class="avatar"></div>
+    <div>
+      <div class="cmeta">
+        <span class="user">u/AdaStudent</span>
+        <span>• 1 hour ago</span>
+      </div>
+      <div class="body">
+        Really cool! I would love to know more about potential changes in activity, alliances between communities
+        or linguistic difference that you observed! You probably included sentiment analysis too!
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="explanation">
+  <div class="content">
+    <h2>What is Reddit?</h2>
+    {% include what-is-reddit.md %}
+  </div>
+</section>
+
+<section class="card thread">
+  <div class="post2">
+    <div class="comment">
+      <div class="avatar"></div>
+      <div>
+        <div class="cmeta">
+          <span class="user">u/DataCleaner</span>
+          <span>• 3 hours ago</span>
+        </div>
+        <div class="body">
+          We removed bots, duplicates, and low-quality content.
+          All removed data was logged to ensure reproducibility.
+        </div>
+
+        <div class="indent">
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar" style="width:26px;height:26px;"></div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/OP_Analyst</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                Exactly — and we also filtered by language to avoid mixed-topic noise.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explanation">
+  <div class="content">
+    <h2>Dataset description</h2>
+    {% include dataset-description.md %}
+  </div>
+</section>
+
+</div>
+</body>
+</html>

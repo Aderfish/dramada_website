@@ -1,0 +1,21 @@
+<div class="footer-custom-team-banner">
+  <div class="footer-custom-team">
+    {% assign team = site.data.team %}
+    {% for member in team %}
+      <div class="team-member">
+        <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}">
+        <h4>{{ member.name }}</h4>
+        <h4>{{ member.surname }}</h4>
+        <p>{{ member.role }}</p>
+        <p class="social-links">
+          {% if member.github %}
+            <a href="{{ member.github }}" target="_blank"><i class="fab fa-github"></i></a>
+          {% endif %}
+          {% if member.twitter %}
+            <a href="{{ member.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+          {% endif %}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
