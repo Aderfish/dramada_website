@@ -3,6 +3,7 @@ layout: null
 ---
 
 @import url("pygment_highlights.css");
+@import url("reddit.css");
 
 :root {
   /* config file CSS variables */
@@ -1123,4 +1124,59 @@ pre {
   #nav-search-text {
     display: inline-block;
   }
+}
+
+/* Full-width banner outside container */
+.footer-custom-team-banner {
+  width: 100vw; 
+  margin-left: calc(-50vw + 50%); /* cancel container padding/margin */
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-custom-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px; /* cards are centered and aligned nicely */
+}
+
+.footer-custom-team .team-member {
+  width: 120px;
+  text-align: center;
+}
+
+.footer-custom-team .team-member img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.footer-custom-team .team-member h4 {
+  margin: 2px 0 2px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #444;
+}
+
+.footer-custom-team .team-member p {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #444;
+}
+
+.footer-custom-team .team-member .social-links a {
+  margin: 0 2px;
+  font-size: 0.8rem;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.footer-custom-team .team-member .social-links a:hover {
+  color: #60a5fa;
 }

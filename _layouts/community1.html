@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/community.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <div class="title">{{ site.title }}</div>
+          <div class="subtitle">{{ site.subtitle }}</div>
+        </div>
+      </div>
+      <div class="pillbar">
+        {% for pill in page.pills %}
+        <div class="pill">{{ pill.name }}: <strong>{{ pill.value }}</strong></div>
+        {% endfor %}
+      </div>
+    </header>
+
+    {{ content }}
+  </div>
+</body>
+</html>
