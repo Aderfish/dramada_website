@@ -264,3 +264,14 @@ h1 {
     padding-left: 14px;
     margin-top: 10px;
 }
+
+.more-replies {
+  cursor: pointer;
+  color: #2563eb;
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+
+.more-replies:hover {
+  text-decoration: underline;
+}
