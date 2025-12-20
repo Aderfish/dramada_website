@@ -770,6 +770,116 @@ footer-extra:
 
     <section class="explanation">
       <div class="content">
+        <h2 id="linguistic">Clustering analysis</h2>
+      </div>
+    </section>
+
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">6.5k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>UMAP, but make it dramatic</h1>
+
+        <p>
+          After slicing reality into political / non-political worlds, dramADA dives
+          deeper. With fancy embeddings, dimensionality reduction magic, and a bit of luck,
+          our heroes try to see whether Reddit naturally sorts itself into political tribes...
+          or if it’s all just chaos.
+        </p>
+
+        <p>
+          UMAP projection of subreddit embeddings. Yes, each dot is a whole community. No, they are not planets. Yet.
+        </p>
+      </div>
+    </article>
+    
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <p>
+            So here's what happened: when we projected subreddit embeddings into 2D, political
+            communities didn’t scatter randomly — they formed a very recognizable group.
+            A <strong>political cluster</strong>. Like a tiny solar system of arguments 🔭.
+          </p>
+          <p>
+            Inside that cluster, we even attempted to separate candidate-leaning communities,
+            and later performed a Left-Right split. It works… mostly. But moderates vs extremes?
+            That’s trickier and required human judgment, which limits how precise we can be.
+          </p>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 4 hours ago</span>
+            </div>
+            <div class="body">
+              Translation: Reddit does group politically… but not into perfectly clean
+              ideological boxes. Humans are messy. Redditors are <em>extra</em> messy.
+            </div>
+          </div>
+        </div>
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/Karen</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                Excuse me?? Are you telling me this super-advanced AI space math can’t sort
+                everyone into “good patriots” and “wrong people”? Totally useless. Zero stars ⭐.
+              </div>
+            </div>
+          </div>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/GrandmA_DA</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                All I see are colorful dots. Back in my day we argued face-to-face, not in
+                … whatever this <em>dot salad</em> is.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <div class="content">
         <h2 id="linguistic">Alliances</h2>
       </div>
     </section>
@@ -937,49 +1047,6 @@ footer-extra:
         </div>
       </div>
     </section>
-    
-
-
-    <section class="explanation">
-      <div class="content">
-        <h2 id="clustering-analysis">Clustering Analysis</h2>
-        Description of the embeddings dataset
-      </div>
-    </section>
-  
-    <section class="card thread">
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/Question</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Do you think these embeddings could be used to visualize clusters of subreddits that are political or that support one candidate?
-          </div>
-        </div>
-      </div>
-
-      <div class="indent">
-        <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
-          <div class="avatar">
-            <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/OP_Analyst</span>
-              <span>• 2 hours ago</span>
-            </div>
-            <div class="body">
-              You mean... like this?
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="explanation">
       <div class="content">
@@ -1006,11 +1073,8 @@ footer-extra:
 
         <p>
           Up to now, we’ve looked at who links to whom and when.
-
           But links don’t tell the full story.
-
           So we asked a deeper question:
-
           How do political communities actually speak on Reddit?
         </p>
         <header></header>
