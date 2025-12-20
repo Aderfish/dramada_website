@@ -328,3 +328,15 @@ h1 {
 .toc a:hover {
   text-decoration: underline;
 }
+
+.plot-container {
+  width: 100%;
+  height: 500px;      /* OU un aspect-ratio */
+  min-width: 0;       /* CRUCIAL si tu es dans un grid */
+}
+
+.plot-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
