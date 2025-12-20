@@ -267,11 +267,64 @@ h1 {
 
 .more-replies {
   cursor: pointer;
-  color: #2563eb;
+  color: #da3a00;
   font-size: 0.85rem;
   margin: 6px 0;
 }
 
 .more-replies:hover {
+  text-decoration: underline;
+}
+
+:root {
+  --header-height: 70px; /* adapte à la vraie hauteur */
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 0px 1fr; /* espace réservé à la TOC */
+  gap: 24px;
+  align-items: start;
+}
+
+.toc {
+  position: sticky;
+  top: var(--header-height);
+
+  width: 170px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  margin-left: -95px;
+  margin-top: 20px;
+
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+
+  color: var(--text);
+  z-index: 10;
+}
+
+.content {
+  min-width: 0;
+}
+
+.toc-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(4, 2, 4);
+  margin-bottom: 8px;
+}
+
+.toc a {
+  display: block;
+  color: #21272A;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+.toc a:hover {
   text-decoration: underline;
 }
