@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Community Thread — Data Analysis
+title: dramADA
 title-img: assets/img/dramada.png
 header-image: assets/img/banner.png
 footer-extra:
@@ -12,7 +12,7 @@ footer-extra:
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Community Thread — Data Analysis</title>
+  <title>dramADA</title>
   <style>@import url("assets/css/reddit.css");</style>
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
@@ -20,13 +20,13 @@ footer-extra:
 <body>
 <div class="layout">
   <nav class="toc">
-    <div class="toc-title">TRENDING ON DRAMADA</div>
+    <div class="toc-title">TRENDING ON R/DRAMADA</div>
     <a href="#reddit">What is Reddit?</a>
     <a href="#explore">Exploring the dataset</a>
     <a href="#questions">Research questions and hypotheses</a>
     <a href="#subdatasets">Creating subdatasets</a>
     <a href="#clustering">Clustering Analysis</a>
-    <a href="#alliances">Alliances</a>
+    <a href="#alliances">Subreddit alliances</a>
     <a href="#pagerank">PageRank analysis</a>
     <a href="#linguistic">Linguistic analysis</a>
   </nav>
@@ -38,7 +38,7 @@ footer-extra:
         </div>
         <div>
           <div class="title">r/dramADA</div>
-          <div class="subtitle">Explaining the influence of the 2016 US election</div>
+          <div class="subtitle">Explaining the influence of the 2016 U.S. presidential election</div>
         </div>
       </div>
       <div class="pillbar">
@@ -60,10 +60,10 @@ footer-extra:
           <span>• Posted by <strong>u/ADAlbert</strong></span>
         </div>
 
-        <h1>Large scale anaylsis of Reddit posts during the 2016 election</h1>
+        <h1>Large scale analysis of Reddit posts during the 2016 U.S. presidential election</h1>
 
         <p>
-          Hello everyone! Me and my team analyzed Reddit data from 2014 to 2017, looking at posts' hyperlinks.
+          Hello everyone! My team and I analyzed Reddit data from 2014 to 2017, looking at hyperlinks in posts.
           We wanted to look at how online activity and behavior changed during the 2016 election, and you won't believe
           what we found!
         </p>
@@ -91,10 +91,10 @@ footer-extra:
           <div class="code">
             1) Subdataset creation<br>
             2) Temporal analysis<br>
-            3) Alliances<br>
+            3) Subreddit alliances<br>
             4) Clustering analysis<br>
-            5) PageRank<br>
-            6) Textual analysis
+            5) PageRank analysis<br>
+            6) Linguistic analysis
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@ footer-extra:
         <h1>Did you know?</h1>
 
         <p>
-          Reddit is a collection of communities (subreddits) that interact by: 
+          Reddit is a collection of communities called subreddits that interact by: 
         </p>
         <ul>
           <li>posting</li>
@@ -218,7 +218,7 @@ footer-extra:
         </ul>
         <p>
           Those links form a network.
-          We studied that network using the Reddit Hyperlink Dataset (SNAP, Stanford).
+          We studied that network using the Reddit Hyperlink Network Dataset (SNAP, Stanford).
         </p>
       </div>
     </article>
@@ -270,9 +270,9 @@ footer-extra:
                     <span>• 34 minutes ago</span>
                   </div>
                   <div class="body">
-                    If I may add, the <b>Reddit Hyperlink & Embeddings Dataset</b> (Stanford SNAP) captures these interactions:
-                    it includes hyperlinks between subreddits and vector embeddings representing users and communities.
-                    Researchers use it to study community dynamics, user behavior, and network structure.
+                    If I may add, the <b>Reddit Hyperlink Network & Subreddit Embeddings datasets</b> (SNAP, Stanford) capture these interactions:
+                    it includes hyperlinks between subreddits and vector embeddings representing communities.
+                    Researchers use it to study community dynamics, user behavior and network structure.
                   </div>
                 </div>
               </div>
@@ -309,7 +309,7 @@ footer-extra:
         <h1>Getting to know the dataset</h1>
 
         <p>
-          Before running fancy analyzes, we first needed to understand the dataset. What are we looking at?
+          Before running fancy analyses, we first needed to understand the dataset. What were we looking at?
         </p>
         <p>
           Meet the Reddit Hyperlink Network: 3.5 years of communities talking about each other. Not comments. Not votes. Just links.
@@ -323,16 +323,16 @@ footer-extra:
           Every hyperlink is annotated with 3 key properties:
           <ul>
             <li><b>🕒 Timestamp</b>: when the post was made</li>
-            <li><b>😃 / 😡 Link sentiment</b>: whether the source talks positively / neutraly or negatively about the target</li>
-            <li><b>Textual properties</b>: a vector of 86 properties such as the post's length, number of characters or LIWC values</li>
+            <li><b>😃 / 😡 Link sentiment</b>: whether the source talks positively, neutrally or negatively about the target</li>
+            <li><b>Textual properties</b>: a vector of 86 properties such as the length of the post, number of characters or LIWC values</li>
           </ul>
         </p>
         <header></header>
         <p>
           The dataset actually comes in 2 flavors:
           <ul>
-            <li><b>Body hyperlinks</b>: links inside the main text of the post</li>
-            <li><b>Title hyperlinks</b>: links dropped directly in the title of the post</li>
+            <li><b>Body hyperlinks</b>: the link is part of the main text of the post</li>
+            <li><b>Title hyperlinks</b>: the link is directly in the title of the post</li>
           </ul>
         </p>
       </div>
@@ -382,7 +382,7 @@ footer-extra:
                     <span>• 1 hour ago</span>
                   </div>
                   <div class="body">
-                    So basically... gossip.
+                    So basically... gossip
                   </div>
                 </div>
               </div>
@@ -449,8 +449,8 @@ footer-extra:
                     <b>TARGET_SUBREDDIT:</b> Who are they talking about<br>
                     <b>POST_ID:</b> Unique identifier for the post<br>
                     <b>TIMESTAMP:</b> When it happened<br>
-                    <b>LINK_SENTIMENT:</b> +1 / -1<br>
-                    <b>PROPERTIES:</b> Vector of 86 textual properties
+                    <b>POST_LABEL:</b> AKA the sentiment of the post, so +1 or -1<br>
+                    <b>POST_PROPERTIES:</b> Vector of 86 text properties
                   </div>
                 </div>
               </div>
@@ -485,8 +485,8 @@ footer-extra:
                     Yes! This dataset lets us study:
                     <ul>
                       <li>Influence between communities</li>
-                      <li>Polarization over time</li>
-                      <li>Alliances and oppositions</li>
+                      <li>Polarization of communities over time</li>
+                      <li>Alliances and oppositions between communities</li>
                     </ul>
                     without tracking individuals.
                   </div>
@@ -504,7 +504,7 @@ footer-extra:
                     <span>• 5 minutes ago</span>
                   </div>
                   <div class="body">
-                    That's a strong ethical choice. The government should take note.
+                    That's a strong ethical choice. The government should take note...
                   </div>
                 </div>
               </div>
@@ -906,7 +906,7 @@ footer-extra:
 
     <section class="explanation">
       <div class="content">
-        <h2 id="alliances">Alliances</h2>
+        <h2 id="alliances">Subreddit alliances</h2>
       </div>
     </section>
 
@@ -1099,11 +1099,9 @@ footer-extra:
 
         <p>
           Once alliances were mapped, another question appeared:
-          <strong>who actually matters the most in this political galaxy?</strong>
-          Not the loudest… not the angriest… but the communities that sit in the
-          middle of everything. So we called in an old friend:
-          Google’s PageRank. But instead of ranking webpages,
-          we ranked political reality.
+          <strong>who matters the most in this graph of interactions?</strong>
+          So we called in an old friend: Google’s PageRank. But instead of ranking webpages,
+          we ranked subreddit importance.
         </p>
         <div class="plot-container">
           <iframe src="assets/plots/pagerank_top.png"></iframe>
