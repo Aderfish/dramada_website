@@ -1,35 +1,35 @@
 - name: Louise 
   surname: Montlahuc
-  role: Data Analyst
-  photo: /assets/img/avatar-icon.png
+  role: Alliances, clustering analysis, political subdataset, website, data story
+  photo: /assets/img/louise_logo.png
   github: https://github.com/louise-montlahuc
 
 - name: Timur 
   surname: Ünver
-  role: Backend Developer
-  photo: /assets/img/avatar-icon.png
+  role: Data scraping, political subdataset, linguistic analysis, website, data story
+  photo: /assets/img/timur_logo.png
   github: https://github.com/timurunv
   
 - name: Youri 
   surname: Gandel
-  role: Data Analyst
-  photo: /assets/img/avatar-icon.png
+  role: Exploratory analysis, political subdataset, temporal analysis, data story
+  photo: /assets/img/youri_logo.png
   github: https://github.com/yourigndl
 
 - name: Alberts
   surname: Reisons
-  role: Backend Developer
-  photo: /assets/img/avatar-icon.png
+  role: PageRank analysis, website, data story
+  photo: /assets/img/alberts_logo.png
   github: https://github.com/Aderfish
 
 - name: Anna-Christina 
   surname: Currat
-  role: Data Analyst
-  photo: /assets/img/avatar-icon.png
+  role: Exploration of the 2D representations embeddings, data story
+  photo: /assets/img/tina_logo.png
   github: https://github.com/acurrat
 
 - name: Gorilla
   surname: Jungle
-  role: Backend Developer
-  photo: /assets/img/avatar-icon.png
+  role: Mascot
+  photo: /assets/img/gorilla_logo.png
   github: https://github.com/bob
