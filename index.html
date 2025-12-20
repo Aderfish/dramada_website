@@ -25,7 +25,9 @@ footer-extra:
     <a href="#explore">Exploring the dataset</a>
     <a href="#questions">Research questions and hypotheses</a>
     <a href="#subdatasets">Creating subdatasets</a>
-    <a href="#clustering-analysis">Clustering Analysis</a>
+    <a href="#clustering">Clustering Analysis</a>
+    <a href="#alliances">Alliances</a>
+    <a href="#pagerank">PageRank analysis</a>
     <a href="#linguistic">Linguistic analysis</a>
   </nav>
   <div class="wrap">
@@ -770,7 +772,7 @@ footer-extra:
 
     <section class="explanation">
       <div class="content">
-        <h2 id="linguistic">Clustering analysis</h2>
+        <h2 id="clustering">Clustering analysis</h2>
       </div>
     </section>
 
@@ -797,6 +799,9 @@ footer-extra:
           our heroes try to see whether Reddit naturally sorts itself into political tribes...
           or if it’s all just chaos.
         </p>
+        <div class="plot-container">
+          <iframe src="assets/plots/politics_tsne.html"></iframe>
+        </div>
 
         <p>
           UMAP projection of subreddit embeddings. Yes, each dot is a whole community. No, they are not planets. Yet.
@@ -880,7 +885,7 @@ footer-extra:
 
     <section class="explanation">
       <div class="content">
-        <h2 id="linguistic">Alliances</h2>
+        <h2 id="alliances">Alliances</h2>
       </div>
     </section>
 
@@ -1041,6 +1046,153 @@ footer-extra:
                 So all these bubbles are people… talking about the same thing…
                 but not talking to each other?
                 Yes. That sounds exactly like Thanksgiving dinner.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <div class="content">
+        <h2 id="pagerank">Page Rank analysis</h2>
+      </div>
+    </section>
+  
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">4.1k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>All Hail the Central Subreddits</h1>
+
+        <p>
+          Once alliances were mapped, another question appeared:
+          <strong>who actually matters the most in this political galaxy?</strong>
+          Not the loudest… not the angriest… but the communities that sit in the
+          middle of everything. So we called in an old friend:
+          Google’s PageRank. But instead of ranking webpages,
+          we ranked political reality.
+        </p>
+        <div class="plot-container">
+          <iframe src="assets/plots/pagerank_top.png"></iframe>
+        </div>
+        <p>
+          Top PageRank political communities. The gravitational centers of Reddit politics.
+        </p>
+      </div>
+    </article>
+
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar" >
+          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAm</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            PageRank tells us which communities aren’t just connected, but
+            strategically connected. In other words: if alliances form highways,
+            PageRank finds the cities where all roads meet.
+          </div>
+          <div class="body">
+            Unsurprisingly, major election-focused communities rise to the top.
+            These aren’t random hubs — they are structural anchors of political discussion,
+            shaping how information and emotion travel across Reddit’s political landscape.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/JohnJohnson</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                I knew it. The same few places secretly pull the strings.
+                This is either a great sociological insight or the intro to a Netflix conspiracy documentary.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="avatar" >
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/Adalbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            PageRank evolution across months. Power is not constant — it spikes when history happens.
+          </div>
+          <div class="body">
+            When we track PageRank over time, we see waves:
+            power concentration intensifies near key political moments,
+            then relaxes afterwards. Election pressure turns a few
+            communities into gravitational superstars,
+            pulling everyone’s attention into their orbit.
+          </div>
+          <div class="body">
+            Bottom line: PageRank reveals <strong>political power centers</strong>.
+            Not by votes, not by noise, but by structural influence:
+            the places where alliances converge,
+            narratives stabilize,
+            and political energy condenses.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/Karen</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                Oh great. So now you're saying certain subreddits literally control gravity.
+                Fantastic. Can someone PageRank my household so my kids listen to me?
+              </div>
+            </div>
+          </div>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/GrandmA_DA</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                In my day, if you were important, you got a chair at the table.
+                Now you get a… number? On a graph? Progress, I guess.
               </div>
             </div>
           </div>
