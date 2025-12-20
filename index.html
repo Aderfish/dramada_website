@@ -72,15 +72,15 @@ footer-extra:
           <h2>Quick summary</h2>
           <div class="grid">
             <div class="kpi">
-              <div class="n">858 488</div>
+              <div class="n">858'488</div>
               <div class="l">Hyperlinks</div>
             </div>
             <div class="kpi">
-              <div class="n">831 014</div>
+              <div class="n">831'014</div>
               <div class="l">Posts</div>
             </div>
             <div class="kpi">
-              <div class="n">67 180</div>
+              <div class="n">67'180</div>
               <div class="l">Subreddits</div>
             </div>
           </div>
@@ -516,6 +516,35 @@ footer-extra:
       </div>
     </section>
 
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">1.6k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>Additional datasets</h1>
+
+        <p>
+          We had to use additional datasets to do the analyses we wanted, so we also used:
+        </p>
+        <ul>
+          <li><b>The subreddit embeddings dataset</b>: it contains embeddings for communities on the same time period as the hyperlink dataset. Embeddings basically represent social relationships between them.</li>
+          <li><b>Posting activity over time</b>: provides both the posts and their first ten comments thanks to a Data Scraping algorithm.</li>
+        </ul>
+        
+        
+      </div>
+    </article>
+    
     <section class="explanation">
       <div class="content">
         <h2 id="questions">Research questions and hypotheses</h2>
@@ -540,7 +569,7 @@ footer-extra:
         <h1>What are we looking for?</h1>
 
         <p>
-          Our goal isn't to just count posts. It is to understand how Reddit's communities reacted, aligned and emotionally evolved around the 2016 US presidential election.
+          Our goal wasn't just to count posts. It was to understand how Reddit communities reacted, aligned and emotionally evolved around the 2016 U.S. presidential election campaign.
         </p>
         <p>
           <b>We studied:</b>
@@ -550,19 +579,19 @@ footer-extra:
           <li>Posting activity over time</li>
           <li>Sentiment and emotional tone</li>
           <li>Linguistic style</li>
-          <li>and influence within the network</li>
+          <li>And influence within the network</li>
         </ul>
         <header></header>
         <p>
           <b>Our main hypotheses were:</b>
           <ul>
-            <li>Activity spikes around key election dates</li>
+            <li>Activity spikes around key event dates</li>
             <li>Communities form alliances based on political alignment</li>
             <li>Negative sentiment increases during the election period</li>
             <li>Polarization intensifies over time</li>
         </p>
         <p>
-          Negativity is captured via link sentiment. Polarisation is studied via network structure and PageRank.
+          Negativity is captured via link sentiment. Polarization was studied via network structure and PageRank.
         </p>
       </div>
     </article>
@@ -603,7 +632,7 @@ footer-extra:
                     <ul>
                       <li>Candidate name filtering</li>
                       <li>Post content scraping</li>
-                      <li>Embeddings proximity</li>
+                      <li>Subreddit embeddings proximity</li>
                     </ul>
                   </div>
                 </div>
@@ -658,7 +687,7 @@ footer-extra:
           </div>
           <div class="body">
             Oh oh! And what about organizational structure? Do subreddits form alliances based on political alignment? 
-            Can we see polarization intensifying over time? OOH! And influence! 
+            Can we see polarization intensifying over time? OOH! And influence!
             Can we identify which communities are the most influential within the network using PageRank? And language! 
             Can we analyze linguistic style to see how different communities express themselves during the election period? 
             Are they similar in style or do they diverge significantly?
@@ -677,7 +706,7 @@ footer-extra:
                     <span>• 1 hour ago</span>
                   </div>
                   <div class="body">
-                    Can I speak to your parents please? This is getting out of hand.
+                    Can I speak to your parents please? This is getting out of hand
                   </div>
                 </div>
               </div>
@@ -721,15 +750,15 @@ footer-extra:
           <div class="grid">
             <div class="kpi">
               <div class="n">Candidate names</div>
-              <div class="l">We filtered the subreddits' names with the candidates' names</div>
+              <div class="l">We filtered subreddit names with the names of the candidates</div>
             </div>
             <div class="kpi">
               <div class="n">Post scraping</div>
-              <div class="l">Thanks to the post content we collected, we could search for political words.</div>
+              <div class="l">Thanks to the post content we collected, we could search for political words in the posts.</div>
             </div>
             <div class="kpi">
-              <div class="n">Embeddings proximity</div>
-              <div class="l">We found more political subreddits thanks to their embedings similarity to detected subreddits</div>
+              <div class="n">Subreddit embeddings proximity</div>
+              <div class="l">We found more political subreddits thanks to their embeddings similarity to detected subreddits.</div>
             </div>
           </div>
         </div>
@@ -746,7 +775,7 @@ footer-extra:
               <span>• 3 hours ago</span>
             </div>
             <div class="body">
-              We removed bots, duplicates, and low-quality content.
+              We removed bots, duplicates and low-quality content.
               All removed data was logged to ensure reproducibility.
             </div>
 
