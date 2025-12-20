@@ -537,8 +537,9 @@ footer-extra:
           We had to use additional datasets to do the analyses we wanted, so we also used:
         </p>
         <ul>
-          <li><b>The subreddit embeddings dataset</b>: it contains embeddings for communities on the same time period as the hyperlink dataset. Embeddings basically represent social relationships between them.</li>
-          <li><b>Posting activity over time</b>: provides both the posts and their first ten comments thanks to a Data Scraping algorithm.</li>
+          <li><b>The subreddit embeddings dataset</b>: it contains embeddings for communities on the same time period as the hyperlink dataset. 
+            Basically, two subreddit embeddings are similar if the users who post in them are similar.</li>
+          <li><b>Posting activity over time</b>: provides both the posts' content and their first ten comments thanks to a Data Scraping algorithm.</li>
         </ul>
         
         
@@ -715,7 +716,6 @@ footer-extra:
 
         </div>
       </div>
-
     </section>
 
     <section class="explanation">
@@ -725,6 +725,7 @@ footer-extra:
     </section>
 
     <header></header>
+
     <article class="card post">
       <div class="vote">
         <button>▲</button>
@@ -732,70 +733,86 @@ footer-extra:
         <button>▼</button>
       </div>
 
-      <div class="content">
+      <div>
         <div class="meta">
-          <span class="community">r/ADAcommunity</span>
-          <span>• Posted by <strong>u/dramADA</strong></span>
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
         </div>
 
-        <h1>How to detect political subreddits?</h1>
-
-        <p>
-          This is the first challenge my team encountered and with a combination of automatic techniques
-          and some manual labeling we managed to solve it!
-        </p>
-
-        <div class="section">
-          <h2>Political subreddit detection</h2>
-          <div class="grid">
-            <div class="kpi">
-              <div class="n">Candidate names</div>
-              <div class="l">We filtered subreddit names with the names of the candidates</div>
-            </div>
-            <div class="kpi">
-              <div class="n">Post scraping</div>
-              <div class="l">Thanks to the post content we collected, we could search for political words in the posts.</div>
-            </div>
-            <div class="kpi">
-              <div class="n">Subreddit embeddings proximity</div>
-              <div class="l">We found more political subreddits thanks to their embeddings similarity to detected subreddits.</div>
-            </div>
-          </div>
+        <h1>So… how did we actually find “political” communities?</h1>
+        <div class="body">
+          Since our project focuses on the 2016 U.S. presidential election, we needed to figure out which Reddit 
+          communities were actually political, instead of just guessing based on names. So we built several 
+          <strong>political subdatasets</strong>: some focusing on specific candidates, and another capturing broader 
+                political discussion spaces.
+          <br>
+          <br>
+          We combined different strategies to do this. First, we searched for candidate names in subreddit names 
+          and in post content, then manually removed irrelevant cases (sorry, “trumpet” players). We also used a 
+          <strong>large language model</strong> to classify communities based on what they actually discuss, which helped 
+          us find political spaces that don’t explicitly label themselves as such.
+          <br>
+          <br>
+          Finally, using our embedding and clustering analysis, we added communities that behave similarly to 
+          known political ones, and then manually reviewed everything. We also labeled whether a community 
+          supported or opposed a candidate, so we weren’t just detecting “who talks about politics”, but also 
+          <strong>how they position themselves</strong>.
+          <br>
+          <br>
+          The result: curated datasets that let us explore how political discussions spread and cluster 
+          across Reddit during the election.
         </div>
       </div>
     </article>
-
     <section class="card thread">
-      <div class="post2">
-        <div class="comment">
-          <div class="avatar"></div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/DataCleaner</span>
-              <span>• 3 hours ago</span>
-            </div>
-            <div class="body">
-              We removed bots, duplicates and low-quality content.
-              All removed data was logged to ensure reproducibility.
-            </div>
-
-            <div class="indent">
-              <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
-                <div class="avatar" style="width:26px;height:26px;"></div>
-                <div>
-                  <div class="cmeta">
-                    <span class="user">u/OP_Analyst</span>
-                    <span>• 2 hours ago</span>
-                  </div>
-                  <div class="body">
-                    Exactly — and we also filtered by language to avoid mixed-topic noise.
-                  </div>
-                </div>
-              </div>
-            </div>
-
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAm</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Wait, so the AI part wasn’t just for fun—it actually helped detect political communities that don’t 
+            even say “politics” anywhere? That’s kinda cool.
           </div>
         </div>
+      </div>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/Karen</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                As long as you still checked it manually. Otherwise, you’d just be trusting your robot overlords.
+              </div>
+            </div>
+          </div>
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/JohnJohnson</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                The embedding similarity part is fascinating though. Communities being “close” because people 
+                behave similarly across them… that says a lot about how ideological bubbles form online.
+              </div>
+            </div>
+          </div>
+        </div> 
       </div>
     </section>
 
