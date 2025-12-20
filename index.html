@@ -785,20 +785,41 @@ footer-extra:
         <button>▼</button>
       </div>
 
-      <div class="content">
+      <div>
         <div class="meta">
           <span class="community">r/dramADA</span>
           <span>• Posted by <strong>u/ADAlbert</strong></span>
         </div>
 
-        <h1>UMAP, but make it dramatic</h1>
+        <h1>Can we spot the political tribes?</h1>
 
-        <p>
-          After slicing reality into political / non-political worlds, dramADA dives
-          deeper. With fancy embeddings, dimensionality reduction magic, and a bit of luck,
-          our heroes try to see whether Reddit naturally sorts itself into political tribes...
-          or if it’s all just chaos.
-        </p>
+        <p>Now that we’ve explored the dataset and created political subdatasets, it’s time to ask: How do these communities relate to each other in a broader sense? Can we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering comes in.</p>
+        <p>Using embeddings of Reddit communities, we can represent each community as a point in a <b>2D space</b>. This allows us to see whether subreddits naturally form clusters, and whether we can leverage these clusters to find additional political communities.</p>
+        <p>Here’s the plan:</p>
+        <ol>
+          <li>We project the political subreddits collected earlier into 2D to examine whether they form natural clusters.</li>
+          <li>We then attempt to identify additional subreddits that are likely political by their proximity to these clusters.</li>
+          <li>Finally, we explore whether further clustering within the political cluster can reveal subgroups corresponding to political views or candidate support.</li>
+        </ol>
+        <header></header>
+        <p><b>About the Subreddit Embeddings dataset:</b></p>
+        <p>We use the <a href="https://snap.stanford.edu/data/web-RedditEmbeddings.html" target="_blank">Subreddit Embeddings dataset</a>, which provides vector representations of communities based on posting behavior:</p>
+        <table>
+          <tr>
+            <th>Key</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>SUBREDDIT_ID</td>
+            <td>ID of the subreddit community</td>
+          </tr>
+          <tr>
+            <td>VECTOR</td>
+            <td>Comma-separated vector of 300 numbers</td>
+          </tr>
+        </table>
+        <p>The intuition is simple: two subreddit embeddings are similar if the users who post in them are similar. We focus on the 302 communities that are also present in the Reddit Hyperlink Dataset, allowing us to visualize communities relevant to the 2016 U.S. presidential election and identify potential clustering patterns.</p>
+        <p><i>Note:</i> Temporal analysis is not possible here, since these embeddings don’t include timestamps. To analyze clustering changes before and after the 2016 election, new embeddings would need to be generated for each period.</p>
         <div class="plot-container">
           <iframe src="assets/plots/politics_tsne.html"></iframe>
         </div>
@@ -1088,8 +1109,13 @@ footer-extra:
           <iframe src="assets/plots/pagerank_top.png"></iframe>
         </div>
         <p>
-          Top PageRank political communities. The gravitational centers of Reddit politics.
+          We can see many popular subreddits here like r/askreddit or r/funny. We can also see r/politics in the top 20. If we look at
+          it's score over time, we can see that it peaks in November 2016, during the election!
         </p>
+
+        <div class="plot-container">
+          <iframe src="assets/plots/politics_over_time.png"></iframe>
+        </div>
       </div>
     </article>
 
