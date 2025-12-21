@@ -573,7 +573,7 @@ footer-extra:
           <li><a href="http://snap.stanford.edu/data/web-RedditEmbeddings.html"><b>The subreddit embeddings dataset</b></a>: 
             contains embeddings for communities on the same time period as the hyperlink dataset.
             Two subreddit embeddings are similar if the users who post in them are similar.</li>
-          <li><b>Posting activity over time</b>: 
+          <li><b>Scraped post content</b>: 
             provides both the content of posts and their first ten comments thanks to a Data Scraping algorithm.</li>
         </ul>
       </div>
@@ -1988,10 +1988,16 @@ footer-extra:
               <span>• 1 hour ago</span>
             </div>
             <div class="body">
-              Haha, that’s Kamada-Kawai for you: a “physics-based drama simulator” disguised as a layout algorithm. 
-              Strongly connected subreddits get cozy, weakly connected ones are awkwardly shoved aside. 
-              The layout actually shows who’s really tight with whom, and who’s just politely ignoring everyone. 
-              Think of it as Reddit social dynamics in 2D!
+              Haha, that’s Kamada-Kawai: a layout algorithm. 
+              It’s like a physics simulation: strong edges pull nodes together, 
+              weak edges push them apart. The result is a clear spatial layout showing 
+              which communities are tightly connected.
+              <br>
+              <br>
+              Kamada-Kawai tries to minimize a global “energy” 
+              function, which places strongly connected subreddits close together and weakly 
+              connected ones farther apart. So what you see visually actually reflects the 
+              alliance strength between communities.
             </div>
           </div>
         </div>
