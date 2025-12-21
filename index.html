@@ -1182,13 +1182,12 @@ footer-extra:
             <li><b>Embedding similarity</b>: how close their embeddings are</li>
           </ul>
           This gives us a score! 
-          We can see the hyperlink posting activity of the strongest pairs over time.
+          We can now see the hyperlink posting activity of the strongest pairs over time:
         </p>
 
         <div class="plot-container">
           <img src="assets/plots/plot_alliances_over_time.png" alt="Alliances over time plot">
         </div>
-
       </div>
     </article>
 
@@ -1197,40 +1196,78 @@ footer-extra:
         <div class="avatar">
           <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
         </div>
-
         <div>
           <div class="cmeta">
             <span class="user">u/ADAlbert</span>
             <span>• 2 hours ago</span>
           </div>
           <div class="body">
-            These lines show pairs of communities whose emotional and semantic behavior
-            evolved together. We see intense alliances forming during campaign months,
-            heating up near the election, and cooling afterwards.
-            Important detail: alliance ≠ agreement — sometimes groups are emotionally synchronized
-            because they’re arguing about the same events.
+            Notice how the 5 pairs supporting Bernie Sanders stop referencing each other around June 
+            2016—right after the final Democratic primary when Sanders lost to Clinton. 
+            Activity measured by hyperlinks drops sharply after that.
+            <br>
+            <br>
+            In contrast, pairs focusing on Donald Trump start referencing each other in early 2016, 
+            during the Republican primaries, and continue through the campaign. 
+            Discussions spike before the election, then taper off afterward.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">    
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 2 hours ago</span>
+            </div>
+            <div class="body">
+              Yep! Sanders-related subreddits start linking around May 2015 (when he announced his run) and stop mid-2016.
+              Trump-related communities start linking in early 2016 and the chatter is densest right before the election.
+              The activity clearly mirrors campaign momentum.
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/JohnJohnson</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Wait?! I think I saw a mistake: <code>the_donald</code> and <code>hillaryclinton</code> appear as an alliance
+            even though they support opposing candidates. 
           </div>
         </div>
       </div>
       <div class="indent">
         <div class="comment">
-          
           <div class="avatar">
-            <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
           </div>
-
           <div>
             <div class="cmeta">
-              <span class="user">u/JohnJohnson</span>
+              <span class="user">u/ADAlbert</span>
               <span>• 2 hours ago</span>
             </div>
             <div class="body">
-              So basically, when the world caught fire, everyone yelled together?
-              Sounds… correct.
+              You're right. This happens because: <br>
+              <ul>
+                <li>Most links in our dataset are labeled positive or neutral.</li>
+                <li>The alliance score measures the total number of references.</li>
+              </ul>
+              So if two subreddits reference each other a lot, even neutrally, 
+              they’re considered an alliance. High reference activity ≠ shared views.
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
 
     <section class="card thread">
