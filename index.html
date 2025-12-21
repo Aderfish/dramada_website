@@ -20,7 +20,7 @@ footer-extra:
 <body>
 <div class="layout">
   <nav class="toc">
-    <div class="toc-title">TRENDING ON r/DRAMADA</div>
+    <div class="toc-title">TRENDING ON <br>r/DRAMADA</div>
     <a href="#reddit">What is Reddit?</a>
     <a href="#explore">Exploring the dataset</a>
     <a href="#questions">Research questions and hypotheses</a>
@@ -31,6 +31,8 @@ footer-extra:
     <a href="#linguistic">Linguistic analysis</a>
     <a href="#semantic">Semantic representation</a>
     <a href="#conclusion">Conclusion</a>
+    <a href="#ethical considerations">Ethical considerations</a>
+    <a href="#sources">Sources</a>
   </nav>
   <div class="wrap">
     <header>
@@ -91,12 +93,12 @@ footer-extra:
         <div class="section">
           <h2>Analysis pipeline</h2>
           <div class="code">
-            1) Subdataset creation<br>
-            2) Temporal analysis<br>
+            1) Creating subdatasets<br>
+            2) Clustering analysis<br>
             3) Subreddit alliances<br>
-            4) Clustering analysis<br>
-            5) PageRank analysis<br>
-            6) Linguistic analysis
+            4) PageRank analysis<br>
+            5) Linguistic analysis<br>
+            6) Semantic representation
           </div>
         </div>
       </div>
@@ -856,9 +858,9 @@ footer-extra:
 
         <h1>So… how did we actually find “political” communities?</h1>
         <div class="body">
-          Since our project focuses on the 2016 U.S. presidential election, we needed to figure out which Reddit 
-          communities were actually political, instead of just guessing based on names. So we built several 
-          <strong>political subdatasets</strong>: some focusing on specific candidates, and another capturing broader 
+          Since our analysis focuses on the 2016 U.S. presidential election, we needed to figure out which Reddit 
+          communities were actually political, instead of just guessing based on subreddit names. So we built several 
+          <strong>political subdatasets</strong>: some focusing on specific candidates, others capturing broader 
                 political discussion spaces.
           <br>
           <br>
@@ -874,8 +876,8 @@ footer-extra:
           <strong>how they position themselves</strong>.
           <br>
           <br>
-          The result: curated datasets that let us explore how political discussions spread and cluster 
-          across Reddit during the election.
+          As a result, we now had curated datasets that let us explore how political discussions spread and cluster 
+          across Reddit during the election:
         </div>
         <div class="plot-container">
           <iframe src='https://flo.uri.sh/visualisation/26888390/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
@@ -957,26 +959,28 @@ footer-extra:
 
         <h1>Can we spot the political tribes?</h1>
         <div class="body">
-          Now that we’ve explored the dataset and created political subdatasets, 
-          it’s time to ask: How do these communities relate to each other in a broader sense? 
-          Can we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering comes in.
+          Now that we had explored the dataset and created political subdatasets, 
+          it was time to ask: How do these communities relate to each other in a broader sense? 
+          Could we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering came in.
           <br>
           <br>
-          Using embeddings of Reddit communities, we can represent each community as a point in a <b>2D space</b>. 
-          This allows us to see whether subreddits naturally form clusters, and whether we can leverage these clusters to find additional political communities.
+          Using embeddings of Reddit communities, we represented each community as a point in a <b>2D space</b>. 
+          This allowed us to see whether subreddits naturally form clusters and whether we could leverage these clusters to find additional political communities.
           <br>
           <br>
-          Here’s the plan: <br>
+          This was our plan:<br>
           <ul>
-            <li>We project the political subreddits collected earlier into 2D to examine whether they form natural clusters.</li>
-            <li>We then attempt to identify additional subreddits that are likely political by their proximity to these clusters.</li>
-            <li>Finally, we explore whether further clustering within the political cluster can reveal subgroups corresponding to political views or candidate support.</li>
+            <li>We projected the political subreddits collected previously into a 2D space to examine whether they form natural clusters.</li>
+            <li>We then attempted to identify additional subreddits that are likely political, by using their proximity to these clusters.</li>
+            <li>Finally, we explored whether further clustering within the political cluster would reveal subgroups corresponding to political views or candidate support.</li>
           </ul>
         </div>
       </div>
     </article>
 
     <section class="card thread">
+      <h2>Top comments</h2>
+      
       <div class="comment">
         <div class="avatar">
           <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
@@ -991,6 +995,7 @@ footer-extra:
           </div>
         </div>
       </div>
+      
       <div class="indent">
         <div class="comment">
           <div class="avatar">
@@ -1002,14 +1007,15 @@ footer-extra:
               <span>• 2 hours ago</span>
             </div>
             <div class="body">
-              Short answer: you can’t. Humans can only really “see” up to 3 dimensions, so we reduce the 300-dimensional
-              embeddings to something more manageable. We use dimensionality reduction techniques like PCA, UMAP and
+              Short answer: you can’t. Humans can only really “see” up to 3 dimensions, so you have to reduce the 300-dimensional
+              embeddings to something more manageable. We used dimensionality reduction techniques like PCA, UMAP and
               t-SNE to compress the space while keeping the important structure: who is close to whom and where clusters
-              might form. Once reduced to 2D, we can finally visualize relationships between communities instead of just
+              might form. Once reduced to 2D, we were finally able to visualize relationships between communities instead of just
               staring at giant vectors of numbers.
             </div>
           </div>
         </div>
+        
       </div>
     </section>
     
@@ -3456,24 +3462,34 @@ footer-extra:
         <h1>What can we conclude?</h1>
 
         <div class="body">
-          After going through the subreddit embeddings, clustering, and alliance graphs, here’s what we can conclude from our analysis of political communities during the 2016 U.S. election: 
+          In conclusion, our comprehensive analysis of Reddit’s political communities during the 2016 U.S. presidential election highlights a multifaceted interplay of temporal activity, network structure, and discourse patterns.  
           <ul>
-            <li><b>Clusters reflect political alignment, but with nuance:</b> Left- and right-leaning subreddits tend to form loosely separated clusters, but there’s overlap and ambiguity. Some communities don’t fit neatly into one side, highlighting the complexity of political discourse online.</li>
-
-            <li><b>Hub-and-spoke structure:</b> Popular subreddits like <code>sandersforpresident</code> or <code>the_donald</code> act as central hubs, while smaller, regional, or niche communities orbit around them. These smaller communities often have strong connections to the hub but not to each other, forming a hierarchical structure that’s typical of Reddit interactions.</li>
-
-            <li><b>Temporal dynamics and campaign effects:</b> Hyperlink activity spikes correspond to major campaign events. Sanders-related subreddits start interacting when his campaign begins and taper off after he loses the primary. Trump subreddits show a later start but similar patterns during the primaries and general election. This indicates that Reddit discussion intensity reflects real-world political timelines.</li>
-
-            <li><b>Alliances are nuanced:</b> Communities with high alliance scores are not always aligned politically. For instance, <code>the_donald</code> and <code>hillaryclinton</code> subreddits reference each other frequently in a neutral or positive way, which the algorithm counts as an alliance. This shows that alliance measures capture interaction volume, not necessarily shared viewpoints.</li>
-
-            <li><b>Insights from embeddings and clustering:</b> Subreddit embeddings capture user behavior and content similarity, revealing patterns that aren’t obvious from names alone. Extreme positions exist on both sides of the spectrum, activism and conspiracy-focused communities are scattered, and religion- and science-oriented subreddits show expected tendencies toward right- or left-leaning clusters. This emphasizes that online behavior can be more predictive than explicit labeling.</li>
-
-            <li><b>Methodological caveats:</b> Many classifications rely on manual checks and subreddit names, which introduces subjectivity. Community orientation can evolve over time, so results should be interpreted with caution. Our clusters are a snapshot of behavior during the 2016 election, not a timeless map of ideology.</li>
+            <li>
+              <b>Temporal Dynamics:</b> Subreddit activity closely followed major campaign events. Sanders communities were active early, continuing engagement even after his primary loss, reflecting grassroots mobilization and meme-driven attention. Trump communities reacted sharply to Republican primaries and late-campaign controversies, while Clinton communities declined sharply after defeat. Third-party candidates received minimal attention, emphasizing Reddit’s predominantly two-pole political landscape. Temporal correlation analysis shows increasing synchronization across candidate communities approaching Election Day, indicating that shared national events drove collective attention.  
+            </li>
+            <br>
+            <li>
+              <b>Interaction Networks and Alliances:</b> Hyperlink analysis revealed hierarchical and structural patterns. Alliances — frequently referencing subreddits — formed both within and across opposing camps, though high referencing did not necessarily indicate shared ideology. Louvain community detection highlighted central hubs and peripheral communities, with Sanders’ network exhibiting a star-shaped structure around the main subreddit, and Trump communities showing distinct pro- and anti-Trump clusters. These patterns indicate that interaction dynamics, posting behavior, and regional organization shape community structure alongside ideological alignment. 
+            </li>
+            <br>
+            <li>
+              <b>Influence and Polarization:</b> PageRank analysis identified influential communities and structural anchors in the Reddit political ecosystem. Despite active partisan mobilization, left- and right-leaning users continued to interact across ideological lines, showing persistent cross-camp engagement and no sharp increase in polarization during the studied period.  
+            </li>
+            <br>
+            <li>
+              <b>Linguistic and Semantic Patterns:</b> Clustering linguistic and semantic embeddings revealed three recurrent discourse structures:  
+              <ul>
+                <li>1. Progressive/institutionally oriented communities focusing on electoral processes and civic engagement.</li>  
+                <li>2. Highly polarized Trump-related communities with emotional and moralized rhetoric.</li>
+                <li>3. Debate-oriented and inquiry-driven communities, engaging in critique and cross-ideological discussion.</li>
+              </ul>
+              Notably, pro- and anti-candidate subreddits sometimes cluster together in embedding space due to shared rhetorical patterns, illustrating that semantic similarity can transcend explicit partisan divisions.  
+            </li>
           </ul>
-          
-          Overall, these analyses illustrate how political communities interact, cluster, and form alliances on Reddit. They highlight the complexity of online discourse, the emergence of central hubs, and the influence of campaign events on community dynamics. Future work could explore temporal embeddings, more fine-grained ideological splits, or even cross-platform interactions to further understand online political behavior. 
+          Overall, these results underscore that Reddit’s political discourse is shaped not solely by ideology but by behavior, attention dynamics, interaction patterns, and rhetorical norms. The observed patterns should be interpreted with caution, as Reddit’s 2016 user base was younger, male-skewed, and ideologically distinct from the general electorate, and manual subreddit labeling introduces potential subjectivity.
           <br>
-          In short: Reddit communities are like a galaxy—stars, planets, and a lot of orbiting drama.
+          <br>
+          Future work could explore temporal embeddings, more fine-grained ideological splits, or even cross-platform interactions to further understand online political behavior. 
         </div>
       </div>
     </article>
@@ -3552,6 +3568,91 @@ footer-extra:
         </div>
       </div>
     </section>
+
+    <section class="explanation">
+      <div class="content">
+        <h2 id="ethical considerations">Ethical considerations</h2>
+      </div>
+    </section>
+
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">2.5k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>A quick note on ethics!</h1>
+
+        <div class="body">
+          Although Reddit data is public, users probably didn’t expect their posts to be analyzed in a research study. 
+          <br><br>
+          All our analyses were done <b>at the community level</b>, so no individual identities were exposed. Keep in mind that Reddit’s 2016 user base was younger, more male, and ideologically skewed compared to the general population, so our findings shouldn’t be generalized beyond the platform.
+          <br><br>
+          Identifying influential communities or interaction patterns could be misused to manipulate discussions, so our reporting emphasizes <b>structural and discursive patterns</b> rather than judging users. 
+          Contextualizing results like this helps us responsibly explore online political communication. 
+        </div>
+      </div>
+    </article>
+
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/Karen</span>
+            <span>• 1 hour ago</span>
+          </div>
+          <div class="body">
+            WAIT. So you’re telling me my favorite Reddit threads might be part of some “community-level research”?? Can I speak to the manager?? I demand to know if my hot take on pineapple pizza is being used in a study!
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="explanation">
+      <div class="content">
+        <h2 id="sources">Sources</h2>
+      </div>
+    </section>
+
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">1.3k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>Sources and inspiration for this project 📚</h1>
+        <div class="body">
+          <ul>
+            <li>S. Kumar, W.L. Hamilton, J. Leskovec, D. Jurafsky. <a href="https://cs.stanford.edu/~srijan/pubs/conflict-paper-www18.pdf">Community Interaction and Conflict on the Web</a>. WWW Conference, 2018.</li>
+            <li>S. Kumar, X. Zhang, J. Leskovec. <a href="https://cs.stanford.edu/~srijan/pubs/jodie-kdd2019.pdf">Predicting Dynamic Embedding Trajectory in Temporal Interaction Networks</a>. ACM SIGKDD, 2019.</li>
+            <li><a href="https://www.reddit.com">Reddit</a></li>
+            <li>OpenAI. (2024). <a href="https://openai.com/index/introducing-gpt-5-2/">Large language model</a>. ChatGPT-5.2 for image generation and text fine-tuning.</li>    
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
 
 <script src="assets/js/replies.js"></script>
 </body>
