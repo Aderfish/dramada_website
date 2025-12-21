@@ -344,3 +344,7 @@ h1 {
 .plot-container.small {
   height: 300px;
 }
+
+.plot-container.big {
+  height: 600px;
+}
