@@ -14,7 +14,6 @@ footer-extra:
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>dramADA</title>
   <style>@import url("assets/css/reddit.css");</style>
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -25,11 +24,12 @@ footer-extra:
     <a href="#explore">Exploring the dataset</a>
     <a href="#questions">Research questions and hypotheses</a>
     <a href="#subdatasets">Creating subdatasets</a>
+    <a href="#temporal">Temporal analysis</a>
+    <a href="#community">Community analysis</a>
     <a href="#clustering">Clustering analysis</a>
     <a href="#alliances">Subreddit alliances</a>
     <a href="#pagerank">PageRank analysis</a>
     <a href="#linguistic">Linguistic analysis</a>
-    <a href="#timeline">Detailed timeline</a>
     <a href="#semantic">Semantic representation</a>
     <a href="#conclusion">Conclusion</a>
     <a href="#ethical considerations">Ethical considerations</a>
@@ -945,787 +945,7 @@ footer-extra:
 
     <section class="explanation">
       <div class="content">
-        <h2 id="clustering">Clustering analysis</h2>
-      </div>
-    </section>
-
-    <header></header>
-
-    <article class="card post">
-      <div class="vote">
-        <button>▲</button>
-        <div class="score">6.5k</div>
-        <button>▼</button>
-      </div>
-
-      <div>
-        <div class="cmeta">
-          <span class="community">r/dramADA</span>
-          <span>• Posted by <strong>u/ADAlbert</strong></span>
-        </div>
-
-        <h1>Can we spot the political tribes?</h1>
-        <div class="body">
-          Now that we had explored the dataset and created political subdatasets, 
-          it was time to ask: How do these communities relate to each other in a broader sense? 
-          Could we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering came in.
-          <br>
-          <br>
-          Using embeddings of Reddit communities, we represented each community as a point in a <b>2D space</b>. 
-          This allowed us to see whether subreddits naturally form clusters and whether we could leverage these clusters to find additional political communities.
-          <br>
-          <br>
-          This was our plan:<br>
-          <ul>
-            <li>We projected the political subreddits collected previously into a 2D space to examine whether they form natural clusters.</li>
-            <li>We then attempted to identify additional subreddits that are likely political, by using their proximity to these clusters.</li>
-            <li>Finally, we explored whether further clustering within the political cluster would reveal subgroups corresponding to political views or candidate support.</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <section class="card thread">
-      <h2>Top comments</h2>
-      
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAm</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Wait… each subreddit is a 300-dimensional vector? How do you even look at something with 300 dimensions?
-          </div>
-        </div>
-      </div>
-      
-      <div class="indent">
-        <div class="more-replies">More replies</div>
-        <div class="replies" hidden>
-          
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/ADAlbert</span>
-                <span>• 2 hours ago</span>
-              </div>
-              <div class="body">
-                Short answer: you can’t. Humans can only really “see” up to 3 dimensions, so you have to reduce the 300-dimensional
-                embeddings to something more manageable. We used dimensionality reduction techniques like PCA, UMAP and
-                t-SNE to compress the space while keeping the important structure: who is close to whom and where clusters
-                might form. Once reduced to 2D, we were finally able to visualize relationships between communities instead of just
-                staring at giant vectors of numbers.
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-    
-    <section class="card thread">
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAlbert</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            So here's what happened: when we projected subreddit embeddings into 2D, political
-            communities didn’t scatter randomly. They formed a very recognizable group.
-            A <strong>political cluster</strong>. Like a tiny solar system of arguments.
-          </div>
-          <div class="plot-container">
-            <iframe src="assets/plots/politics_tsne.html"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="comment">
-          <div class="avatar">
-            <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/GrandmA_DA</span>
-              <span>• 1 hour ago</span>
-            </div>
-            <div class="body">
-              Oh how fun! You can hover your mouse over the dots to see the subreddit names pop up. 
-              And if it gets too crowded, you can click the themes in the legend to hide or show them. 
-              Even I can do it!
-            </div>
-          </div>
-        </div>
-        <div class="comment">
-          <div class="avatar">
-            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/ADAm</span>
-              <span>• 4 hours ago</span>
-            </div>
-            <div class="body">
-              We can see that political cluster quite clearly! 
-              Then I guess you extract it an algorithm like KNN!
-            </div>
-          </div>
-        </div>
-        <div class="indent">
-          <div class="more-replies">More replies</div>
-          <div class="replies" hidden>
-            <div class="comment">
-              <div class="avatar">
-                <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-              </div>
-              <div>
-                <div class="cmeta">
-                  <span class="user">u/ADAlbert</span>
-                  <span>• 2 hours ago</span>
-                </div>
-                <div class="body">
-                  Since most political communities seem to sit inside two main areas of the embedding space, we try to
-                  automatically extract a tightly connected “political cluster.” We start from a known political subreddit,
-                  <code>2016_elections</code>, and search for communities that are extremely similar to it.
-                  <br>
-                  <br>
-                  Each subreddit is represented as a high-dimensional embedding vector describing its behavioral or thematic
-                  profile. To compare them, we use <strong>cosine similarity</strong>, which measures how close two vectors
-                  are in direction rather than size. A value close to 1 means two communities behave almost the same.
-                  <br>
-                  <br>
-                  To do this efficiently, we first use a <strong>K-nearest-neighbors</strong> model to get candidate
-                  neighbors in the embedding space, then apply a much stricter cosine similarity filter
-                  (only subreddits above a very high similarity threshold are accepted).
-                  <br>
-                  <br>
-                  The cluster grows iteratively: starting from the seed, we take its neighbors, keep only the extremely
-                  similar ones, then repeat the process for each new accepted subreddit. This gradually creates a compact,
-                  highly cohesive political cluster rather than a loose cloud of vaguely related communities.
-                  <br>
-                  <br>
-                  In short: KNN proposes nearby candidates, cosine similarity decides who truly belongs, and the iterative
-                  expansion builds a clean political core around our seed subreddit.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="card thread">
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAlbert</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Inside this political cluster, we can even try to separate communities along a Left–Right divide. 
-            If you want to explore it yourself, you can click on <strong>“None”</strong> in the legend to hide
-            subreddits that were not classified and make the separation easier to see.
-            <br>
-            <br>
-            You can also hover over each point to reveal the subreddit name and its theme, which helps interpret
-            which communities end up on each side.
-          </div>
-          <div class="plot-container">
-            <iframe src='https://flo.uri.sh/visualisation/26904101/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="comment">
-          <div class="avatar">
-            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/ADAm</span>
-              <span>• 4 hours ago</span>
-            </div>
-            <div class="body">
-              Translation: Reddit does group politically… but not into perfectly clean
-              ideological boxes. Humans are messy. Redditors are <em>extra</em> messy.
-            </div>
-          </div>
-        </div>
-        <div class="indent">
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/ADAlbert</span>
-                <span>• 2 hours ago</span>
-              </div>
-              <div class="body">
-                A quick reality check: our clustering results depend heavily on how we labeled communities.
-                Many subreddit names clearly signal political identity, but that isn’t always guaranteed, and
-                we only had limited contextual verification. This means our categorization may contain bias,
-                subjective interpretation, or simply be wrong in subtle ways.
-                <br>
-                <br>
-                Political identity can also evolve over time and is rarely captured by a single label. So
-                while the clusters tell an interesting story, they should be interpreted with caution.
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/John_Johnson</span>
-                <span>• 1 hour ago</span>
-              </div>
-              <div class="body">
-                One thing that really stands out is that communities with very strong positions exist on both
-                ends of the spectrum. Activism spaces and conspiracy-oriented communities appear at different
-                poles. Everyone’s passionate, just in different directions.
-                <br>
-                <br>
-                Overall, we do see a loose Left–Right separation: left-leaning subreddits hang out toward the lower-left, 
-                right-leaning ones drift toward the top-right. But don’t expect a perfect wall, there’s overlap, fuzziness, 
-                and plenty of nuance. It’s more of a “political spaghetti map” than a straight line.
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/Karen</span>
-                <span>• 1 hour ago</span>
-              </div>
-              <div class="body">
-                Okay, I see a pattern here: religion-focused communities (especially Christian ones) tend to cozy up
-                to right-wing spaces, while science-y communities are closer to the left. Not exactly shocking, but the fact
-                that it shows up so clearly in the embedding map is… kind of hilarious? 
-                <br>
-                <br>
-                Honestly, it’s like Reddit itself is sorting everyone into ideological cliques. I half expect a hall
-                monitor to pop up and tell people to behave.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="more-replies">More replies</div>
-        <div class="replies" hidden>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/GrandmA_DA</span>
-                <span>• 1 hour ago</span>
-              </div>
-              <div class="body">
-                All I see are colorful dots. Back in my day we argued face-to-face, not in
-                … whatever this <em>dot salad</em> is.
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/ADAlbert</span>
-                <span>• 2 hours ago</span>
-              </div>
-              <div class="body">
-                There’s more to explore! A natural next step would be zooming inside the political
-                cluster to see whether more structure appears. Maybe separating moderate political
-                spaces from more extreme ones, or identifying different ideological sub-groups.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="explanation">
-      <div class="content">
-        <h2 id="alliances">Subreddit alliances</h2>
-      </div>
-    </section>
-
-    <header></header>
-
-    <article class="card post">
-      <div class="vote">
-        <button>▲</button>
-        <div class="score">5.3k</div>
-        <button>▼</button>
-      </div>
-
-      <div class="content">
-        <div class="meta">
-          <span class="community">r/dramADA</span>
-          <span>• Posted by <strong>u/ADAlbert</strong></span>
-        </div>
-
-        <h1>How do communities interact? The enemy of my enemy… posts with me</h1>
-
-        <p>
-          Next step: alliances. 
-          By alliance we mean a pair of similar subreddits that have been referencing 
-          each other often and that target the same communities.
-          Think of it as Reddit friendship bracelets, but nerdier.
-        </p>
-        <header></header>
-        <p>
-          How do we define an alliance? We use three metrics:
-          <ul>
-            <li><b>Negativity score</b>: how much they target the same community negatively</li>
-            <li><b>Positivity score</b>: how much they reference each other positively</li>
-            <li><b>Embedding similarity</b>: how close their embeddings are</li>
-          </ul>
-          This gives us a score! 
-          We can now see the hyperlink posting activity of the strongest pairs over time:
-        </p>
-
-        <div class="plot-container">
-          <img src="assets/plots/plot_alliances_over_time.png" alt="Alliances over time plot">
-        </div>
-      </div>
-    </article>
-
-    <section class="card thread">
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAlbert</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Notice how the 5 pairs supporting Bernie Sanders stop referencing each other around June 
-            2016, right after the final Democratic primary when Sanders lost to Clinton. 
-            Activity measured by hyperlinks drops sharply after that.
-            <br>
-            <br>
-            In contrast, pairs focusing on Donald Trump start referencing each other in early 2016, 
-            during the Republican primaries, and continue through the campaign. 
-            Discussions spike before the election, then taper off afterward.
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="comment">    
-          <div class="avatar">
-            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/ADAm</span>
-              <span>• 2 hours ago</span>
-            </div>
-            <div class="body">
-              Yep! Sanders-related subreddits start linking around May 2015 (when he announced his run) and stop mid-2016.
-              Trump-related communities start linking in early 2016 and the chatter is densest right before the election.
-              The activity clearly mirrors campaign momentum.
-            </div>
-          </div>
-        </div>
-      </div> 
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/John_Johnson</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Wait?! I think I saw a mistake: <code>the_donald</code> and <code>hillaryclinton</code> appear as an alliance
-            even though they support opposing candidates. 
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="comment">
-          <div class="avatar">
-            <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/ADAlbert</span>
-              <span>• 2 hours ago</span>
-            </div>
-            <div class="body">
-              You're right. This happens because: <br>
-              <ul>
-                <li>Most links in our dataset are labeled positive or neutral.</li>
-                <li>The alliance score measures the total number of references.</li>
-              </ul>
-              So if two subreddits reference each other a lot, even neutrally, 
-              they’re considered an alliance. High reference activity ≠ shared views.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <header></header>
-    <article class="card post">
-      <div class="vote">
-        <button>▲</button>
-        <div class="score">5.3k</div>
-        <button>▼</button>
-      </div>
-
-      <div class="content">
-        <div class="meta">
-          <span class="community">r/dramADA</span>
-          <span>• Posted by <strong>u/ADAlbert</strong></span>
-        </div>
-
-        <h1>Friendships & frenemies graph</h1>
-
-        <div class="body">
-          We built a graph where each node is a subreddit, and edges connect pairs with an <strong>alliance score</strong>. 
-          The score shows how strong the “friendship” is (sometimes frenemies count too!)
-          <br>
-          <br>
-          Next, we detect communities using <strong>Louvain Communities</strong>. It groups subreddits so that: 
-          <br>
-          <ul>
-            <li>Subreddits in the same clique reference each other a lot.</li>
-            <li>Subreddits in different cliques mostly ignore each other.</li>
-          </ul>
-        </div>
-        <div>
-          <iframe src='https://flo.uri.sh/visualisation/26810821/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-        </div>
-      </div>
-    </article>
-
-    <section class="card thread">
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/John_Johnson</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Wait… why does my alliance graph look like it had too much coffee? Why are some subreddits huddled together while others are awkwardly far apart?
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="comment">
-          <div class="avatar">
-            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/ADAm</span>
-              <span>• 1 hour ago</span>
-            </div>
-            <div class="body">
-              Haha, that’s Kamada-Kawai for you: a “physics-based drama simulator” disguised as a layout algorithm. 
-              Strongly connected subreddits get cozy, weakly connected ones are awkwardly shoved aside. 
-              The layout actually shows who’s really tight with whom, and who’s just politely ignoring everyone. 
-              Think of it as Reddit social dynamics in 2D!
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/John_Johnson</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            Look at the Sanders subreddits! They form a perfect star shape. Each regional community hugs <code>sandersforpresident</code> like it’s the cool kid in school, but they barely talk to each other. 
-            Reddit hierarchy in action: central hubs get all the attention, and the little ones just orbit politely. 🌟
-          </div>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAm</span>
-            <span>• 1 hour ago</span>
-          </div>
-          <div class="body">
-            Oh, and check out <code>stillsanderforpres</code>, it’s far away from the main Sanders cluster. 
-            Makes sense: it was created on July 6th, after Clinton already won the primaries. It’s like showing up to the party late and missing the group photo. 😅
-          </div>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAlbert</span>
-            <span>• 45 minutes ago</span>
-          </div>
-          <div class="body">
-            On the other side, we see Trump subreddits. Most cluster around the main hubs, but some, like <code>the_meltdown</code>, <code>antitrumpalliance</code>, and <code>drumpf</code>, hang out at the edges. 
-            We checked: they’re mostly anti-Trump.
-            <br>
-            <br>
-            Notice the node sizes? Bigger nodes posted more hyperlinks. It’s like a popularity contest: the bigger the node, the more they talk, and the more everyone else orbits around them. 
-            Small nodes are polite satellites: they mention only a few key communities, keeping the hierarchy tidy.
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="more-replies">More replies</div>
-        <div class="replies" hidden>
-          <div class="comment">      
-            <div class="avatar">
-              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/Karen</span>
-                <span>• 1 hour ago</span>
-              </div>
-              <div class="body">
-                Organized? Sure. But I still blame the algorithm. And gluten.
-              </div>
-            </div>
-          </div>
-
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/GrandmA_DA</span>
-                <span>• 3 hours ago</span>
-              </div>
-              <div class="body">
-                So all these bubbles are people… talking about each other…
-                but not talking <strong>to</strong> each other?
-                Yes. That sounds exactly like Thanksgiving dinner.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="explanation">
-      <div class="content">
-        <h2 id="pagerank">Page Rank analysis</h2>
-      </div>
-    </section>
-  
-    <header></header>
-
-    <article class="card post">
-      <div class="vote">
-        <button>▲</button>
-        <div class="score">4.1k</div>
-        <button>▼</button>
-      </div>
-
-      <div class="content">
-        <div class="meta">
-          <span class="community">r/dramADA</span>
-          <span>• Posted by <strong>u/ADAlbert</strong></span>
-        </div>
-
-        <h1>All Hail the Central Subreddits</h1>
-
-        <p>
-          Once alliances were mapped, another question appeared:
-          <strong>who matters the most in this graph of interactions?</strong>
-          So we called in an old friend: Google’s PageRank. But instead of ranking webpages,
-          we ranked subreddit importance.
-        </p>
-        <div class="plot-container">
-          <img src="assets/plots/pagerank_top.png" alt="PageRank plot">
-        </div>
-        <p>
-          We can see many popular subreddits here like r/askreddit or r/funny. We can also see r/politics in the top 20. If we look at
-          it's score over time, we can see that it peaks in November 2016, during the election!
-        </p>
-
-        <div class="plot-container">
-          <img src="assets/plots/politics_over_time.png" alt="Politics over time plot">
-        </div>
-      </div>
-    </article>
-
-    <section class="card thread">
-      <div class="comment">
-        <div class="avatar" >
-          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAm</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            PageRank tells us which communities aren’t just connected, but
-            strategically connected. In other words: if alliances form highways,
-            PageRank finds the cities where all roads meet.
-          </div>
-          <div class="body">
-            Unsurprisingly, major election-focused communities rise to the top.
-            These aren’t random hubs, they are structural anchors of political discussion,
-            shaping how information and emotion travel across Reddit’s political landscape.
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="more-replies">More replies</div>
-        <div class="replies" hidden>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/John_Johnson</span>
-                <span>• 2 hours ago</span>
-              </div>
-              <div class="body">
-                I knew it. The same few places secretly pull the strings.
-                This is either a great sociological insight or the intro to a Netflix conspiracy documentary.
-              </div>
-            </div>
-          </div>
-          <div class="indent">
-            <div class="comment">
-              <div class="avatar">
-                <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-              </div>
-              <div>
-                <div class="cmeta">
-                  <span class="user">u/ADAm</span>
-                  <span>• 1 hour ago</span>
-                </div>
-                <div class="body">
-                  Haha, yes! Here’s the nerdy explanation I learned in my data analysis class: PageRank measures the centrality of nodes in a graph. 
-                  It’s like simulating a random walker hopping along the network: the more likely you are to land on a node, the higher its PageRank. 
-                  Nodes get high scores if many other high-score nodes point to them. Formally:
-                  <br><br>
-                  <b>P<sub>v</sub> = λ/|V| + (1 − λ) Σ<sub>i ∈ δ<sup>-</sup>(v)</sub> P<sub>i</sub> / |δ<sup>+</sup>(v)|</b>
-                  <br><br>
-                  Where:<br>
-                  <ul>
-                    <li>V = all subreddits (vertices)</li>
-                    <li>δ⁻(v) = subreddits linking to v</li>
-                    <li>δ⁺(v) = subreddits that can be reached by i</li>
-                    <li>λ = probability of jumping to a random subreddit</li>
-                  </ul>
-                  In other words: PageRank helps us see which subreddits are the most “popular” or central in the political discussion highways.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="avatar" >
-          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/Adalbert</span>
-            <span>• 2 hours ago</span>
-          </div>
-          <div class="body">
-            PageRank evolution across months. Power is not constant, it spikes when history happens.
-          </div>
-          <div class="body">
-            When we track PageRank over time, we see waves:
-            power concentration intensifies near key political moments,
-            then relaxes afterwards. Election pressure turns a few
-            communities into gravitational superstars,
-            pulling everyone’s attention into their orbit.
-          </div>
-          <div class="body">
-            Bottom line: PageRank reveals <strong>political power centers</strong>.
-            Not by votes, not by noise, but by structural influence:
-            the places where alliances converge,
-            narratives stabilize,
-            and political energy condenses.
-          </div>
-        </div>
-      </div>
-      <div class="indent">
-        <div class="more-replies">More replies</div>
-        <div class="replies" hidden>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/Karen</span>
-                <span>• 2 hours ago</span>
-              </div>
-              <div class="body">
-                Oh great. So now you're saying certain subreddits literally control gravity.
-                Fantastic. Can someone PageRank my household so my kids listen to me?
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <div class="avatar">
-              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-            </div>
-            <div>
-              <div class="cmeta">
-                <span class="user">u/GrandmA_DA</span>
-                <span>• 2 hours ago</span>
-              </div>
-              <div class="body">
-                In my day, if you were important, you got a chair at the table.
-                Now you get a… number? On a graph? Progress, I guess.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="explanation">
-      <div class="content">
-        <h2 id="timeline">Detailed Timeline</h2>
+        <h2 id="temporal">Temporal analysis</h2>
       </div>
     </section>
   
@@ -3044,6 +2264,786 @@ footer-extra:
           </div>
         </div>
       </section>
+    </section>  
+
+    <section class="explanation">
+      <div class="content">
+        <h2 id="clustering">Clustering analysis</h2>
+      </div>
+    </section>
+
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">6.5k</div>
+        <button>▼</button>
+      </div>
+
+      <div>
+        <div class="cmeta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>Can we spot the political tribes?</h1>
+        <div class="body">
+          Now that we had explored the dataset and created political subdatasets, 
+          it was time to ask: How do these communities relate to each other in a broader sense? 
+          Could we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering came in.
+          <br>
+          <br>
+          Using embeddings of Reddit communities, we represented each community as a point in a <b>2D space</b>. 
+          This allowed us to see whether subreddits naturally form clusters and whether we could leverage these clusters to find additional political communities.
+          <br>
+          <br>
+          This was our plan:<br>
+          <ul>
+            <li>We projected the political subreddits collected previously into a 2D space to examine whether they form natural clusters.</li>
+            <li>We then attempted to identify additional subreddits that are likely political, by using their proximity to these clusters.</li>
+            <li>Finally, we explored whether further clustering within the political cluster would reveal subgroups corresponding to political views or candidate support.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <section class="card thread">
+      <h2>Top comments</h2>
+      
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAm</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Wait… each subreddit is a 300-dimensional vector? How do you even look at something with 300 dimensions?
+          </div>
+        </div>
+      </div>
+      
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/ADAlbert</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                Short answer: you can’t. Humans can only really “see” up to 3 dimensions, so you have to reduce the 300-dimensional
+                embeddings to something more manageable. We used dimensionality reduction techniques like PCA, UMAP and
+                t-SNE to compress the space while keeping the important structure: who is close to whom and where clusters
+                might form. Once reduced to 2D, we were finally able to visualize relationships between communities instead of just
+                staring at giant vectors of numbers.
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            So here's what happened: when we projected subreddit embeddings into 2D, political
+            communities didn’t scatter randomly. They formed a very recognizable group.
+            A <strong>political cluster</strong>. Like a tiny solar system of arguments.
+          </div>
+          <div class="plot-container">
+            <iframe src="assets/plots/politics_tsne.html"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/GrandmA_DA</span>
+              <span>• 1 hour ago</span>
+            </div>
+            <div class="body">
+              Oh how fun! You can hover your mouse over the dots to see the subreddit names pop up. 
+              And if it gets too crowded, you can click the themes in the legend to hide or show them. 
+              Even I can do it!
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 4 hours ago</span>
+            </div>
+            <div class="body">
+              We can see that political cluster quite clearly! 
+              Then I guess you extract it an algorithm like KNN!
+            </div>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="more-replies">More replies</div>
+          <div class="replies" hidden>
+            <div class="comment">
+              <div class="avatar">
+                <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+              </div>
+              <div>
+                <div class="cmeta">
+                  <span class="user">u/ADAlbert</span>
+                  <span>• 2 hours ago</span>
+                </div>
+                <div class="body">
+                  Since most political communities seem to sit inside two main areas of the embedding space, we try to
+                  automatically extract a tightly connected “political cluster.” We start from a known political subreddit,
+                  <code>2016_elections</code>, and search for communities that are extremely similar to it.
+                  <br>
+                  <br>
+                  Each subreddit is represented as a high-dimensional embedding vector describing its behavioral or thematic
+                  profile. To compare them, we use <strong>cosine similarity</strong>, which measures how close two vectors
+                  are in direction rather than size. A value close to 1 means two communities behave almost the same.
+                  <br>
+                  <br>
+                  To do this efficiently, we first use a <strong>K-nearest-neighbors</strong> model to get candidate
+                  neighbors in the embedding space, then apply a much stricter cosine similarity filter
+                  (only subreddits above a very high similarity threshold are accepted).
+                  <br>
+                  <br>
+                  The cluster grows iteratively: starting from the seed, we take its neighbors, keep only the extremely
+                  similar ones, then repeat the process for each new accepted subreddit. This gradually creates a compact,
+                  highly cohesive political cluster rather than a loose cloud of vaguely related communities.
+                  <br>
+                  <br>
+                  In short: KNN proposes nearby candidates, cosine similarity decides who truly belongs, and the iterative
+                  expansion builds a clean political core around our seed subreddit.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Inside this political cluster, we can even try to separate communities along a Left–Right divide. 
+            If you want to explore it yourself, you can click on <strong>“None”</strong> in the legend to hide
+            subreddits that were not classified and make the separation easier to see.
+            <br>
+            <br>
+            You can also hover over each point to reveal the subreddit name and its theme, which helps interpret
+            which communities end up on each side.
+          </div>
+          <div class="plot-container">
+            <iframe src='https://flo.uri.sh/visualisation/26904101/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 4 hours ago</span>
+            </div>
+            <div class="body">
+              Translation: Reddit does group politically… but not into perfectly clean
+              ideological boxes. Humans are messy. Redditors are <em>extra</em> messy.
+            </div>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/ADAlbert</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                A quick reality check: our clustering results depend heavily on how we labeled communities.
+                Many subreddit names clearly signal political identity, but that isn’t always guaranteed, and
+                we only had limited contextual verification. This means our categorization may contain bias,
+                subjective interpretation, or simply be wrong in subtle ways.
+                <br>
+                <br>
+                Political identity can also evolve over time and is rarely captured by a single label. So
+                while the clusters tell an interesting story, they should be interpreted with caution.
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/John_Johnson</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                One thing that really stands out is that communities with very strong positions exist on both
+                ends of the spectrum. Activism spaces and conspiracy-oriented communities appear at different
+                poles. Everyone’s passionate, just in different directions.
+                <br>
+                <br>
+                Overall, we do see a loose Left–Right separation: left-leaning subreddits hang out toward the lower-left, 
+                right-leaning ones drift toward the top-right. But don’t expect a perfect wall, there’s overlap, fuzziness, 
+                and plenty of nuance. It’s more of a “political spaghetti map” than a straight line.
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/Karen</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                Okay, I see a pattern here: religion-focused communities (especially Christian ones) tend to cozy up
+                to right-wing spaces, while science-y communities are closer to the left. Not exactly shocking, but the fact
+                that it shows up so clearly in the embedding map is… kind of hilarious? 
+                <br>
+                <br>
+                Honestly, it’s like Reddit itself is sorting everyone into ideological cliques. I half expect a hall
+                monitor to pop up and tell people to behave.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/GrandmA_DA</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                All I see are colorful dots. Back in my day we argued face-to-face, not in
+                … whatever this <em>dot salad</em> is.
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/ADAlbert</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                There’s more to explore! A natural next step would be zooming inside the political
+                cluster to see whether more structure appears. Maybe separating moderate political
+                spaces from more extreme ones, or identifying different ideological sub-groups.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <div class="content">
+        <h2 id="alliances">Subreddit alliances</h2>
+      </div>
+    </section>
+
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">5.3k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>How do communities interact? The enemy of my enemy… posts with me</h1>
+
+        <p>
+          Next step: alliances. 
+          By alliance we mean a pair of similar subreddits that have been referencing 
+          each other often and that target the same communities.
+          Think of it as Reddit friendship bracelets, but nerdier.
+        </p>
+        <header></header>
+        <p>
+          How do we define an alliance? We use three metrics:
+          <ul>
+            <li><b>Negativity score</b>: how much they target the same community negatively</li>
+            <li><b>Positivity score</b>: how much they reference each other positively</li>
+            <li><b>Embedding similarity</b>: how close their embeddings are</li>
+          </ul>
+          This gives us a score! 
+          We can now see the hyperlink posting activity of the strongest pairs over time:
+        </p>
+
+        <div class="plot-container">
+          <img src="assets/plots/plot_alliances_over_time.png" alt="Alliances over time plot">
+        </div>
+      </div>
+    </article>
+
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Notice how the 5 pairs supporting Bernie Sanders stop referencing each other around June 
+            2016, right after the final Democratic primary when Sanders lost to Clinton. 
+            Activity measured by hyperlinks drops sharply after that.
+            <br>
+            <br>
+            In contrast, pairs focusing on Donald Trump start referencing each other in early 2016, 
+            during the Republican primaries, and continue through the campaign. 
+            Discussions spike before the election, then taper off afterward.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">    
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 2 hours ago</span>
+            </div>
+            <div class="body">
+              Yep! Sanders-related subreddits start linking around May 2015 (when he announced his run) and stop mid-2016.
+              Trump-related communities start linking in early 2016 and the chatter is densest right before the election.
+              The activity clearly mirrors campaign momentum.
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/John_Johnson</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Wait?! I think I saw a mistake: <code>the_donald</code> and <code>hillaryclinton</code> appear as an alliance
+            even though they support opposing candidates. 
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAlbert</span>
+              <span>• 2 hours ago</span>
+            </div>
+            <div class="body">
+              You're right. This happens because: <br>
+              <ul>
+                <li>Most links in our dataset are labeled positive or neutral.</li>
+                <li>The alliance score measures the total number of references.</li>
+              </ul>
+              So if two subreddits reference each other a lot, even neutrally, 
+              they’re considered an alliance. High reference activity ≠ shared views.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <header></header>
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">5.3k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>Friendships & frenemies graph</h1>
+
+        <div class="body">
+          We built a graph where each node is a subreddit, and edges connect pairs with an <strong>alliance score</strong>. 
+          The score shows how strong the “friendship” is (sometimes frenemies count too!)
+          <br>
+          <br>
+          Next, we detect communities using <strong>Louvain Communities</strong>. It groups subreddits so that: 
+          <br>
+          <ul>
+            <li>Subreddits in the same clique reference each other a lot.</li>
+            <li>Subreddits in different cliques mostly ignore each other.</li>
+          </ul>
+        </div>
+        <div>
+          <iframe src='https://flo.uri.sh/visualisation/26810821/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        </div>
+      </div>
+    </article>
+
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/John_Johnson</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Wait… why does my alliance graph look like it had too much coffee? Why are some subreddits huddled together while others are awkwardly far apart?
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 1 hour ago</span>
+            </div>
+            <div class="body">
+              Haha, that’s Kamada-Kawai for you: a “physics-based drama simulator” disguised as a layout algorithm. 
+              Strongly connected subreddits get cozy, weakly connected ones are awkwardly shoved aside. 
+              The layout actually shows who’s really tight with whom, and who’s just politely ignoring everyone. 
+              Think of it as Reddit social dynamics in 2D!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/John_Johnson</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Look at the Sanders subreddits! They form a perfect star shape. Each regional community hugs <code>sandersforpresident</code> like it’s the cool kid in school, but they barely talk to each other. 
+            Reddit hierarchy in action: central hubs get all the attention, and the little ones just orbit politely. 🌟
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAm</span>
+            <span>• 1 hour ago</span>
+          </div>
+          <div class="body">
+            Oh, and check out <code>stillsanderforpres</code>, it’s far away from the main Sanders cluster. 
+            Makes sense: it was created on July 6th, after Clinton already won the primaries. It’s like showing up to the party late and missing the group photo. 😅
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 45 minutes ago</span>
+          </div>
+          <div class="body">
+            On the other side, we see Trump subreddits. Most cluster around the main hubs, but some, like <code>the_meltdown</code>, <code>antitrumpalliance</code>, and <code>drumpf</code>, hang out at the edges. 
+            We checked: they’re mostly anti-Trump.
+            <br>
+            <br>
+            Notice the node sizes? Bigger nodes posted more hyperlinks. It’s like a popularity contest: the bigger the node, the more they talk, and the more everyone else orbits around them. 
+            Small nodes are polite satellites: they mention only a few key communities, keeping the hierarchy tidy.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment">      
+            <div class="avatar">
+              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/Karen</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                Organized? Sure. But I still blame the algorithm. And gluten.
+              </div>
+            </div>
+          </div>
+
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/GrandmA_DA</span>
+                <span>• 3 hours ago</span>
+              </div>
+              <div class="body">
+                So all these bubbles are people… talking about each other…
+                but not talking <strong>to</strong> each other?
+                Yes. That sounds exactly like Thanksgiving dinner.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <div class="content">
+        <h2 id="pagerank">Page Rank analysis</h2>
+      </div>
+    </section>
+  
+    <header></header>
+
+    <article class="card post">
+      <div class="vote">
+        <button>▲</button>
+        <div class="score">4.1k</div>
+        <button>▼</button>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span class="community">r/dramADA</span>
+          <span>• Posted by <strong>u/ADAlbert</strong></span>
+        </div>
+
+        <h1>All Hail the Central Subreddits</h1>
+
+        <p>
+          Once alliances were mapped, another question appeared:
+          <strong>who matters the most in this graph of interactions?</strong>
+          So we called in an old friend: Google’s PageRank. But instead of ranking webpages,
+          we ranked subreddit importance.
+        </p>
+        <div class="plot-container">
+          <img src="assets/plots/pagerank_top.png" alt="PageRank plot">
+        </div>
+        <p>
+          We can see many popular subreddits here like r/askreddit or r/funny. We can also see r/politics in the top 20. If we look at
+          it's score over time, we can see that it peaks in November 2016, during the election!
+        </p>
+
+        <div class="plot-container">
+          <img src="assets/plots/politics_over_time.png" alt="Politics over time plot">
+        </div>
+      </div>
+    </article>
+
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar" >
+          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAm</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            PageRank tells us which communities aren’t just connected, but
+            strategically connected. In other words: if alliances form highways,
+            PageRank finds the cities where all roads meet.
+          </div>
+          <div class="body">
+            Unsurprisingly, major election-focused communities rise to the top.
+            These aren’t random hubs, they are structural anchors of political discussion,
+            shaping how information and emotion travel across Reddit’s political landscape.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/John_Johnson</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                I knew it. The same few places secretly pull the strings.
+                This is either a great sociological insight or the intro to a Netflix conspiracy documentary.
+              </div>
+            </div>
+          </div>
+          <div class="indent">
+            <div class="comment">
+              <div class="avatar">
+                <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+              </div>
+              <div>
+                <div class="cmeta">
+                  <span class="user">u/ADAm</span>
+                  <span>• 1 hour ago</span>
+                </div>
+                <div class="body">
+                  Haha, yes! Here’s the nerdy explanation I learned in my data analysis class: PageRank measures the centrality of nodes in a graph. 
+                  It’s like simulating a random walker hopping along the network: the more likely you are to land on a node, the higher its PageRank. 
+                  Nodes get high scores if many other high-score nodes point to them. Formally:
+                  <br><br>
+                  <b>P<sub>v</sub> = λ/|V| + (1 − λ) Σ<sub>i ∈ δ<sup>-</sup>(v)</sub> P<sub>i</sub> / |δ<sup>+</sup>(v)|</b>
+                  <br><br>
+                  Where:<br>
+                  <ul>
+                    <li>V = all subreddits (vertices)</li>
+                    <li>δ⁻(v) = subreddits linking to v</li>
+                    <li>δ⁺(v) = subreddits that can be reached by i</li>
+                    <li>λ = probability of jumping to a random subreddit</li>
+                  </ul>
+                  In other words: PageRank helps us see which subreddits are the most “popular” or central in the political discussion highways.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="avatar" >
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/Adalbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            PageRank evolution across months. Power is not constant, it spikes when history happens.
+          </div>
+          <div class="body">
+            When we track PageRank over time, we see waves:
+            power concentration intensifies near key political moments,
+            then relaxes afterwards. Election pressure turns a few
+            communities into gravitational superstars,
+            pulling everyone’s attention into their orbit.
+          </div>
+          <div class="body">
+            Bottom line: PageRank reveals <strong>political power centers</strong>.
+            Not by votes, not by noise, but by structural influence:
+            the places where alliances converge,
+            narratives stabilize,
+            and political energy condenses.
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/Karen</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                Oh great. So now you're saying certain subreddits literally control gravity.
+                Fantastic. Can someone PageRank my household so my kids listen to me?
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/GrandmA_DA</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                In my day, if you were important, you got a chair at the table.
+                Now you get a… number? On a graph? Progress, I guess.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="explanation">
@@ -4514,24 +4514,40 @@ footer-extra:
             Now let's look at the real-life results of these elections. 
             Do you think we could have guessed the election result from our analysis?
           </div>
-          <div class="plot-container-small">
+          <div class="plot-container small">
             <iframe src='https://flo.uri.sh/visualisation/26778916/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
           </div>
         </div>
       </div>
-      <div class="comment">
-        <div class="avatar">
-          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
-        </div>
-        <div>
-          <div class="cmeta">
-            <span class="user">u/ADAlbert</span>
-            <span>• 3 minutes ago</span>
+      <div class="indent">
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/trump_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/RealDonaldTrump</span>
+                <span>• just now</span>
+              </div>
+              <div class="body">
+                BEAUTIFUL graph. Everyone’s talking about it. Clean data. Strong numbers. <br>
+                This confirms what we already knew: total victory.
+              </div>
+            </div>
           </div>
-          <div class="body">
-          </div>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/clinton_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/HillaryClinton has left the subreddit</span>
+                <span></span>
+              </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <section class="explanation">

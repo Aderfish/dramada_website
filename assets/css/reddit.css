@@ -340,3 +340,7 @@ h1 {
   height: 100%;
   border: none;
 }
+
+.plot-container.small {
+  height: 300px;
+}
