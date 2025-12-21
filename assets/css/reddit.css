@@ -341,12 +341,10 @@ h1 {
   border: none;
 }
 
-.plot-container-small {
-  width: 100%;
+.plot-container.small {
+  height: 300px;
 }
 
-.plot-container-small {
-  width: 100%;
-  height: 300px;
-  border: none;
+.plot-container.big {
+  height: 600px;
 }
