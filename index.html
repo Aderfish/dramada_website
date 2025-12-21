@@ -566,11 +566,98 @@ footer-extra:
           We had to use additional datasets to do the analyses we wanted, so we also used:
         </p>
         <ul>
-          <li><a href="http://snap.stanford.edu/data/web-RedditEmbeddings.html"><b>The subreddit embeddings dataset</b></a>: it contains embeddings for communities on the same time period as the hyperlink dataset.            Basically, two subreddit embeddings are similar if the users who post in them are similar.</li>
-          <li><b>Posting activity over time</b>: provides both the content of posts and their first ten comments thanks to a Data Scraping algorithm.</li>
+          <li><a href="http://snap.stanford.edu/data/web-RedditEmbeddings.html"><b>The subreddit embeddings dataset</b></a>: 
+            contains embeddings for communities on the same time period as the hyperlink dataset.
+            Two subreddit embeddings are similar if the users who post in them are similar.</li>
+          <li><b>Posting activity over time</b>: 
+            provides both the content of posts and their first ten comments thanks to a Data Scraping algorithm.</li>
         </ul>
-        
-        
+      </div>
+    </article>
+
+    <section class="card thread">
+      <h2>Top comments</h2>
+      
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/GrandmA_DA</span>
+            <span>• 5 hours ago</span>
+          </div>
+          <div class="body">
+            did somone say beds? all you youngsters wanna do is stay in bed all day!
+            back in my day we were up and moving before the sun even thought about showing up
+          </div>
+
+          <div class="indent">
+            <div class="more-replies">More replies</div>
+
+            <div class="replies" hidden>
+
+              <!-- Reply 1 -->
+              <div class="comment">
+                <div class="avatar">
+                  <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+                </div>
+                <div>
+                  <div class="cmeta">
+                    <span class="user">u/ADAm</span>
+                    <span>• 4 hours ago</span>
+                  </div>
+                  <div class="body">
+                    No grandma, they talked about EMBEDDINGS. If I understood correctly 
+                    they're basically social relationships between the communities on Reddit. 
+                    But how exactly did they create the embeddings dataset?? 
+                    And what about the Scraping Data algorithm??
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reply 2 -->
+              <div class="comment">
+                <div class="avatar">
+                  <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+                </div>
+                <div>
+                  <div class="cmeta">
+                    <span class="user">u/ADAlbert</span>
+                    <span>• 3 hours ago</span>
+                  </div>
+                  <div class="body">
+                    For the embeddings dataset they used the hyperlink dataset to generate vectors from posting behavior 
+                    with the idea that two community embeddings are close if similar users post on them.<br>
+                    The Data Scraping algorithm on the other hand goes through each reddit ID of the hyperlink dataset. 
+                    If the ID still exists (a large proportion of posts were removed over time), then it is saved with the title of the post, 
+                    its body and the first ten comments. It's super useful to avoid going through the whole hyperlink 
+                    dataset every time!
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reply 3 -->
+              <div class="comment">
+                <div class="avatar">
+                  <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+                </div>
+                <div>
+                  <div class="cmeta">
+                    <span class="user">u/ADAm</span>
+                    <span>• 3 hours ago</span>
+                  </div>
+                  <div class="body">
+                    I see, but since many posts are no longer available on Reddit the dataset might not 
+                    be representative of the whole Reddit population active during the 2016 election...
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </article>
     
