@@ -20,7 +20,7 @@ footer-extra:
 <body>
 <div class="layout">
   <nav class="toc">
-    <div class="toc-title">TRENDING ON R/DRAMADA</div>
+    <div class="toc-title">TRENDING ON r/DRAMADA</div>
     <a href="#reddit">What is Reddit?</a>
     <a href="#explore">Exploring the dataset</a>
     <a href="#questions">Research questions and hypotheses</a>
@@ -927,8 +927,100 @@ footer-extra:
           <div class="plot-container">
             <iframe src="assets/plots/politics_tsne.html"></iframe>
           </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/GrandmA_DA</span>
+              <span>• 1 hour ago</span>
+            </div>
+            <div class="body">
+              Oh how fun! You can hover your mouse over the dots to see the subreddit names pop up. 
+              And if it gets too crowded, you can click the themes in the legend to hide or show them. 
+              Even I can do it!
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 4 hours ago</span>
+            </div>
+            <div class="body">
+              We can see that political cluster quite clearly! 
+              Then I guess you extract it an algorithm like KNN!
+            </div>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="more-replies">More replies</div>
+          <div class="replies" hidden>
+            <div class="comment">
+              <div class="avatar">
+                <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+              </div>
+              <div>
+                <div class="cmeta">
+                  <span class="user">u/ADAlbert</span>
+                  <span>• 2 hours ago</span>
+                </div>
+                <div class="body">
+                  Since most political communities seem to sit inside two main areas of the embedding space, we try to
+                  automatically extract a tightly connected “political cluster.” We start from a known political subreddit,
+                  <code>2016_elections</code>, and search for communities that are extremely similar to it.
+                  <br>
+                  <br>
+                  Each subreddit is represented as a high-dimensional embedding vector describing its behavioral or thematic
+                  profile. To compare them, we use <strong>cosine similarity</strong>, which measures how close two vectors
+                  are in direction rather than size. A value close to 1 means two communities behave almost the same.
+                  <br>
+                  <br>
+                  To do this efficiently, we first use a <strong>K-nearest-neighbors</strong> model to get candidate
+                  neighbors in the embedding space, then apply a much stricter cosine similarity filter
+                  (only subreddits above a very high similarity threshold are accepted).
+                  <br>
+                  <br>
+                  The cluster grows iteratively: starting from the seed, we take its neighbors, keep only the extremely
+                  similar ones, then repeat the process for each new accepted subreddit. This gradually creates a compact,
+                  highly cohesive political cluster rather than a loose cloud of vaguely related communities.
+                  <br>
+                  <br>
+                  In short: KNN proposes nearby candidates, cosine similarity decides who truly belongs, and the iterative
+                  expansion builds a clean political core around our seed subreddit.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 2 hours ago</span>
+          </div>
           <div class="body">
-            Inside that cluster, we can even attempt to perform a Left-Right split.
+            Inside this political cluster, we can even try to separate communities along a Left–Right divide. 
+            If you want to explore it yourself, you can click on <strong>“None”</strong> in the legend to hide
+            subreddits that were not classified and make the separation easier to see.
+            <br>
+            <br>
+            You can also hover over each point to reveal the subreddit name and its theme, which helps interpret
+            which communities end up on each side.
           </div>
           <div class="plot-container">
             <iframe src='https://flo.uri.sh/visualisation/26904101/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
@@ -962,31 +1054,38 @@ footer-extra:
                 <span>• 2 hours ago</span>
               </div>
               <div class="body">
-                Indeed, clustering communities by their political view works… mostly. 
-                It would be even more interesting to separate moderates vs extremes subreddits! 
-                But that’s trickier and requires human judgment, which limits how precise we can be.
+                A quick reality check: our clustering results depend heavily on how we labeled communities.
+                Many subreddit names clearly signal political identity, but that isn’t always guaranteed, and
+                we only had limited contextual verification. This means our categorization may contain bias,
+                subjective interpretation, or simply be wrong in subtle ways.
+                <br>
+                <br>
+                Political identity can also evolve over time and is rarely captured by a single label. So
+                while the clusters tell an interesting story, they should be interpreted with caution.
               </div>
             </div>
           </div>
-        </div>
-        <div class="comment">
-          <div class="avatar">
-            <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
-          </div>
-          <div>
-            <div class="cmeta">
-              <span class="user">u/GrandmA_DA</span>
-              <span>• 1 hour ago</span>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/john_johnson_logo.png" alt="Avatar" style="transform: scale(1.3);">
             </div>
-            <div class="body">
-              Oh how fun! You can hover your mouse over the dots to see the subreddit names pop up. 
-              And if it gets too crowded, you can click the themes in the legend to hide or show them. 
-              Even I can do it!
+            <div>
+              <div class="cmeta">
+                <span class="user">u/JohnJohnson</span>
+                <span>• 1 hour ago</span>
+              </div>
+              <div class="body">
+                One thing that really stands out is that communities with very strong positions exist on both
+                ends of the spectrum. Activism spaces and conspiracy-oriented communities appear at different
+                poles. Everyone’s passionate—just in different directions.
+                <br>
+                <br>
+                Overall, we do see a loose Left–Right separation: left-leaning subreddits hang out toward the lower-left, 
+                right-leaning ones drift toward the top-right. But don’t expect a perfect wall—there’s overlap, fuzziness, 
+                and plenty of nuance. It’s more of a “political spaghetti map” than a straight line.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="more-replies">More replies</div>
-        <div class="replies" hidden>
           <div class="comment">
             <div class="avatar">
               <img src="assets/img/karen_logo.png" alt="Avatar" style="transform: scale(1.3);">
@@ -997,11 +1096,19 @@ footer-extra:
                 <span>• 1 hour ago</span>
               </div>
               <div class="body">
-                Excuse me?? Are you telling me this super-advanced AI space math can’t sort
-                everyone into “good patriots” and “wrong people”? Totally useless. Zero stars ⭐.
+                Okay, I see a pattern here: religion-focused communities (especially Christian ones) tend to cozy up
+                to right-wing spaces, while science-y communities are closer to the left. Not exactly shocking, but the fact
+                that it shows up so clearly in the embedding map is… kind of hilarious? 
+                <br>
+                <br>
+                Honestly, it’s like Reddit itself is sorting everyone into ideological cliques. I half expect a hall
+                monitor to pop up and tell people to behave.
               </div>
             </div>
           </div>
+        </div>
+        <div class="more-replies">More replies</div>
+        <div class="replies" hidden>
           <div class="comment">
             <div class="avatar">
               <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
@@ -1014,6 +1121,22 @@ footer-extra:
               <div class="body">
                 All I see are colorful dots. Back in my day we argued face-to-face, not in
                 … whatever this <em>dot salad</em> is.
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="avatar">
+              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/ADAlbert</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                There’s more to explore! A natural next step would be zooming inside the political
+                cluster to see whether more structure appears — maybe separating moderate political
+                spaces from more extreme ones, or identifying different ideological sub-groups.
               </div>
             </div>
           </div>
