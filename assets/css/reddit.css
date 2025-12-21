@@ -348,3 +348,13 @@ h1 {
 .plot-container.big {
   height: 600px;
 }
+
+.toc-right {
+  position: absolute;
+  top: 8px;               /* même que margin-top de la gauche */
+  left: calc(100% + 44px); /* dans la marge droite */
+}
+
+.layout {
+  position: relative; /* ← AJOUTE CETTE LIGNE */
+}
