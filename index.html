@@ -29,6 +29,8 @@ footer-extra:
     <a href="#alliances">Subreddit alliances</a>
     <a href="#pagerank">PageRank analysis</a>
     <a href="#linguistic">Linguistic analysis</a>
+    <a href="#limitations">Limitations</a>
+    <a href="#conclusion">Conclusion</a>
   </nav>
   <div class="wrap">
     <header>
@@ -734,7 +736,7 @@ footer-extra:
       </div>
 
       <div>
-        <div class="meta">
+        <div class="cmeta">
           <span class="community">r/dramADA</span>
           <span>• Posted by <strong>u/ADAlbert</strong></span>
         </div>
@@ -832,49 +834,68 @@ footer-extra:
       </div>
 
       <div>
-        <div class="meta">
+        <div class="cmeta">
           <span class="community">r/dramADA</span>
           <span>• Posted by <strong>u/ADAlbert</strong></span>
         </div>
 
         <h1>Can we spot the political tribes?</h1>
-
-        <p>Now that we’ve explored the dataset and created political subdatasets, it’s time to ask: How do these communities relate to each other in a broader sense? Can we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering comes in.</p>
-        <p>Using embeddings of Reddit communities, we can represent each community as a point in a <b>2D space</b>. This allows us to see whether subreddits naturally form clusters, and whether we can leverage these clusters to find additional political communities.</p>
-        <p>Here’s the plan:</p>
-        <ol>
-          <li>We project the political subreddits collected earlier into 2D to examine whether they form natural clusters.</li>
-          <li>We then attempt to identify additional subreddits that are likely political by their proximity to these clusters.</li>
-          <li>Finally, we explore whether further clustering within the political cluster can reveal subgroups corresponding to political views or candidate support.</li>
-        </ol>
-        <header></header>
-        <p><b>About the Subreddit Embeddings dataset:</b></p>
-        <p>We use the <a href="https://snap.stanford.edu/data/web-RedditEmbeddings.html" target="_blank">Subreddit Embeddings dataset</a>, which provides vector representations of communities based on posting behavior:</p>
-        <table>
-          <tr>
-            <th>Key</th>
-            <th>Description</th>
-          </tr>
-          <tr>
-            <td>SUBREDDIT_ID</td>
-            <td>ID of the subreddit community</td>
-          </tr>
-          <tr>
-            <td>VECTOR</td>
-            <td>Comma-separated vector of 300 numbers</td>
-          </tr>
-        </table>
-        <p>The intuition is simple: two subreddit embeddings are similar if the users who post in them are similar. We focus on the 302 communities that are also present in the Reddit Hyperlink Dataset, allowing us to visualize communities relevant to the 2016 U.S. presidential election and identify potential clustering patterns.</p>
-        <p><i>Note:</i> Temporal analysis is not possible here, since these embeddings don’t include timestamps. To analyze clustering changes before and after the 2016 election, new embeddings would need to be generated for each period.</p>
-        <div class="plot-container">
-          <iframe src="assets/plots/politics_tsne.html"></iframe>
+        <div class="body">
+          Now that we’ve explored the dataset and created political subdatasets, 
+          it’s time to ask: How do these communities relate to each other in a broader sense? 
+          Can we identify groups of subreddits that are similar in terms of user base or topic focus? That’s where clustering comes in.
+          <br>
+          <br>
+          Using embeddings of Reddit communities, we can represent each community as a point in a <b>2D space</b>. 
+          This allows us to see whether subreddits naturally form clusters, and whether we can leverage these clusters to find additional political communities.
+          <br>
+          <br>
+          Here’s the plan: <br>
+          <ul>
+            <li>We project the political subreddits collected earlier into 2D to examine whether they form natural clusters.</li>
+            <li>We then attempt to identify additional subreddits that are likely political by their proximity to these clusters.</li>
+            <li>Finally, we explore whether further clustering within the political cluster can reveal subgroups corresponding to political views or candidate support.</li>
+          </ul>
         </div>
-
-        <p>
-          UMAP projection of subreddit embeddings. Yes, each dot is a whole community. No, they are not planets. Yet.
-        </p>
       </div>
     </article>
+
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+        </div>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAm</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
+            Wait… each subreddit is a 300-dimensional vector? How do you even look at something with 300 dimensions?
+          </div>
+        </div>
+      </div>
+      <div class="indent">
+        <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+          <div class="avatar">
+            <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAlbert</span>
+              <span>• 2 hours ago</span>
+            </div>
+            <div class="body">
+              Short answer: you can’t. Humans can only really “see” up to 3 dimensions, so we reduce the 300-dimensional
+              embeddings to something more manageable. We use dimensionality reduction techniques like PCA, UMAP and
+              t-SNE to compress the space while keeping the important structure: who is close to whom and where clusters
+              might form. Once reduced to 2D, we can finally visualize relationships between communities instead of just
+              staring at giant vectors of numbers.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     
     <section class="card thread">
       <div class="comment">
@@ -886,16 +907,20 @@ footer-extra:
             <span class="user">u/ADAlbert</span>
             <span>• 2 hours ago</span>
           </div>
-          <p>
+          <div class="body">
             So here's what happened: when we projected subreddit embeddings into 2D, political
             communities didn’t scatter randomly — they formed a very recognizable group.
             A <strong>political cluster</strong>. Like a tiny solar system of arguments 🔭.
-          </p>
-          <p>
-            Inside that cluster, we even attempted to separate candidate-leaning communities,
-            and later performed a Left-Right split. It works… mostly. But moderates vs extremes?
-            That’s trickier and required human judgment, which limits how precise we can be.
-          </p>
+          </div>
+          <div class="plot-container">
+            <iframe src="assets/plots/politics_tsne.html"></iframe>
+          </div>
+          <div class="body">
+            Inside that cluster, we can even attempt to perform a Left-Right split.
+          </div>
+          <div class="plot-container">
+            <iframe src='https://flo.uri.sh/visualisation/26904101/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+          </div>
         </div>
       </div>
       <div class="indent">
@@ -911,6 +936,40 @@ footer-extra:
             <div class="body">
               Translation: Reddit does group politically… but not into perfectly clean
               ideological boxes. Humans are messy. Redditors are <em>extra</em> messy.
+            </div>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+            <div class="avatar">
+              <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
+            </div>
+            <div>
+              <div class="cmeta">
+                <span class="user">u/ADAlbert</span>
+                <span>• 2 hours ago</span>
+              </div>
+              <div class="body">
+                Indeed, clustering communities by their political view works… mostly. 
+                It would be even more interesting to separate moderates vs extremes subreddits! 
+                But that’s trickier and requires human judgment, which limits how precise we can be.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+          <div class="avatar">
+            <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/GrandmA_DA</span>
+              <span>• 1 hour ago</span>
+            </div>
+            <div class="body">
+              Oh how fun! You can hover your mouse over the dots to see the subreddit names pop up. 
+              And if it gets too crowded, you can click the themes in the legend to hide or show them. 
+              Even I can do it!
             </div>
           </div>
         </div>
@@ -1674,11 +1733,12 @@ footer-extra:
 
 
 
+    <section class="explanation">
+      <div class="content">
+        <h2 id="conclusion">Conclusion</h2>
+      </div>
+    </section>
 
-            
-
-  </div>
-</div>
 <script src="assets/js/replies.js"></script>
 </body>
 
