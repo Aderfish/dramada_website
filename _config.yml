@@ -21,10 +21,10 @@ author: Dramada Team
 # --- List of links in the navigation bar --- #
 ###############################################
 
-# navbar-links:
-  # Dataset: /#dataset 
-  # Analysis: /#analysis
-  # Conclusion: /#conclusion
+navbar-links:
+  Dataset: https://snap.stanford.edu/data/soc-RedditHyperlinks.html
+  Analysis: /#questions
+  Conclusion: /#conclusion
 
 ################
 # --- Logo --- #
