@@ -20,7 +20,7 @@ footer-extra:
 <body>
 <div class="layout">
   <nav class="toc">
-    <div class="toc-title">TRENDING ON r/DRAMADA</div>
+    <div class="toc-title">TRENDING ON <br>r/DRAMADA</div>
     <a href="#reddit">What is Reddit?</a>
     <a href="#explore">Exploring the dataset</a>
     <a href="#questions">Research questions and hypotheses</a>
@@ -93,12 +93,12 @@ footer-extra:
         <div class="section">
           <h2>Analysis pipeline</h2>
           <div class="code">
-            1) Subdataset creation<br>
-            2) Temporal analysis<br>
+            1) Creating subdatasets<br>
+            2) Clustering analysis<br>
             3) Subreddit alliances<br>
-            4) Clustering analysis<br>
-            5) PageRank analysis<br>
-            6) Linguistic analysis
+            4) PageRank analysis<br>
+            5) Linguistic analysis<br>
+            6) Semantic representation
           </div>
         </div>
       </div>
@@ -858,9 +858,9 @@ footer-extra:
 
         <h1>So… how did we actually find “political” communities?</h1>
         <div class="body">
-          Since our project focuses on the 2016 U.S. presidential election, we needed to figure out which Reddit 
-          communities were actually political, instead of just guessing based on names. So we built several 
-          <strong>political subdatasets</strong>: some focusing on specific candidates, and another capturing broader 
+          Since our analysis focuses on the 2016 U.S. presidential election, we needed to figure out which Reddit 
+          communities were actually political, instead of just guessing based on subreddit names. So we built several 
+          <strong>political subdatasets</strong>: some focusing on specific candidates, others capturing broader 
                 political discussion spaces.
           <br>
           <br>
@@ -876,8 +876,8 @@ footer-extra:
           <strong>how they position themselves</strong>.
           <br>
           <br>
-          The result: curated datasets that let us explore how political discussions spread and cluster 
-          across Reddit during the election.
+          As a result, we now had curated datasets that let us explore how political discussions spread and cluster 
+          across Reddit during the election:
         </div>
         <div class="plot-container">
           <iframe src='https://flo.uri.sh/visualisation/26888390/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:None;height:None;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
