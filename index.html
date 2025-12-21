@@ -1523,6 +1523,35 @@ footer-extra:
               </div>
             </div>
           </div>
+          <div class="indent">
+            <div class="comment" style="padding:0; grid-template-columns: 26px 1fr;">
+              <div class="avatar">
+                <img src="assets/img/adam_logo.png">
+              </div>
+              <div>
+                <div class="cmeta">
+                  <span class="user">u/ADAm</span>
+                  <span>• 1 hour ago</span>
+                </div>
+                <div class="body">
+                  Haha, yes! Here’s the nerdy explanation I learned in my data analysis class: PageRank measures the centrality of nodes in a graph. 
+                  It’s like simulating a random walker hopping along the network — the more likely you are to land on a node, the higher its PageRank. 
+                  Nodes get high scores if many other high-score nodes point to them. Formally:
+                  <br><br>
+                  <b>P<sub>v</sub> = λ/|V| + (1 − λ) Σ<sub>i ∈ δ<sup>-</sup>(v)</sub> P<sub>i</sub> / |δ<sup>+</sup>(v)|</b>
+                  <br><br>
+                  Where:<br>
+                  <ul>
+                    <li>V = all subreddits (vertices)</li>
+                    <li>δ⁻(v) = subreddits linking to v</li>
+                    <li>δ⁺(v) = subreddits that can be reached by i</li>
+                    <li>λ = probability of jumping to a random subreddit</li>
+                  </ul>
+                  In other words: PageRank helps us see which subreddits are the most “popular” or central in the political discussion highways.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="comment">
