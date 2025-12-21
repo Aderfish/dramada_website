@@ -23,8 +23,7 @@ author: Dramada Team
 
 navbar-links:
   Dataset: https://snap.stanford.edu/data/soc-RedditHyperlinks.html
-  Analysis: /#questions
-  Conclusion: /#conclusion
+  Repository: https://github.com/epfl-ada/ada-2025-project-dramada
 
 ################
 # --- Logo --- #
