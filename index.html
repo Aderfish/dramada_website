@@ -2355,38 +2355,27 @@ footer-extra:
       </div>
     </section>
     
-    <header></header>
-
-    <article class="card post">
-      <div class="vote">
-        <button>▲</button>
-        <div class="score">4.2k</div>
-        <button>▼</button>
-      </div>
-
-      <div class="content">
-        <div class="meta">
-          <span class="community">r/dramADA</span>
-          <span>• Posted by <strong>u/ADAlbert</strong></span>
+    <section class="card thread">
+      <div class="comment">
+        <div class="avatar">
+          <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
         </div>
-
-        <h1>t-SNE clusters of subreddits</h1>
-
-          <p>
+        <div>
+          <div class="cmeta">
+            <span class="user">u/ADAlbert</span>
+            <span>• 2 hours ago</span>
+          </div>
+          <div class="body">
             So here's what happened: when we projected subreddit embeddings into 2D, political
             communities didn’t scatter randomly. They formed a very recognizable group.
             A <strong>political cluster</strong>. Like a tiny solar system of arguments.
-          </p>
-          <div class="plot-container big">
+          </div>
+          <div class="plot-container">
             <iframe src="assets/plots/politics_tsne.html"></iframe>
           </div>
-        
         </div>
-      </article>
-
-      <section class="card thread">
-        <h2>Top comments</h2>
-
+      </div>
+      <div class="indent">
         <div class="comment">
           <div class="avatar">
             <img src="assets/img/grandma_da_logo.png" alt="Avatar" style="transform: scale(1.3);">
@@ -2394,7 +2383,7 @@ footer-extra:
           <div>
             <div class="cmeta">
               <span class="user">u/GrandmA_DA</span>
-              <span>• 3 hours ago</span>
+              <span>• 1 hour ago</span>
             </div>
             <div class="body">
               Oh how fun! You can hover your mouse over the dots to see the subreddit names pop up. 
@@ -2402,27 +2391,25 @@ footer-extra:
               Even I can do it!
             </div>
           </div>
-
-                <div class="comment">
-                  <div class="avatar">
-                    <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
-                  </div>
-                  <div>
-                    <div class="cmeta">
-                      <span class="user">u/ADAm</span>
-                      <span>• 4 hours ago</span>
-                    </div>
-                    <div class="body">
-                      We can see that political cluster quite clearly! 
-                      Then I guess you extract it with an algorithm like KNN!
-                    </div>
-                  </div>
-                </div>
-                
+        </div>
+        <div class="comment">
+          <div class="avatar">
+            <img src="assets/img/adam_logo.png" alt="Avatar" style="transform: scale(1.3);">
+          </div>
+          <div>
+            <div class="cmeta">
+              <span class="user">u/ADAm</span>
+              <span>• 4 hours ago</span>
+            </div>
+            <div class="body">
+              We can see that political cluster quite clearly! 
+              Then I guess you extract it an algorithm like KNN!
+            </div>
+          </div>
+        </div>
         <div class="indent">
           <div class="more-replies">More replies</div>
           <div class="replies" hidden>
-            
             <div class="comment">
               <div class="avatar">
                 <img src="assets/img/adalbert_logo.png" alt="Avatar" style="transform: scale(1.3);">
@@ -2433,18 +2420,18 @@ footer-extra:
                   <span>• 2 hours ago</span>
                 </div>
                 <div class="body">
-                  Since most political communities seem to sit inside two main areas of the embedding space, we tried to
-                  automatically extract a tightly connected “political cluster”. We started from a known political subreddit,
-                  <code>2016_elections</code>, and searched for communities that are extremely similar to it.
+                  Since most political communities seem to sit inside two main areas of the embedding space, we try to
+                  automatically extract a tightly connected “political cluster.” We start from a known political subreddit,
+                  <code>2016_elections</code>, and search for communities that are extremely similar to it.
                   <br>
                   <br>
                   Each subreddit is represented as a high-dimensional embedding vector describing its behavioral or thematic
-                  profile. To compare them, we used <strong>cosine similarity</strong>, which measures how close two vectors
+                  profile. To compare them, we use <strong>cosine similarity</strong>, which measures how close two vectors
                   are in direction rather than size. A value close to 1 means two communities behave almost the same.
                   <br>
                   <br>
-                  To do this efficiently, we first used a <strong>K-nearest-neighbors</strong> model to get candidate
-                  neighbors in the embedding space, then applied a much stricter cosine similarity filter
+                  To do this efficiently, we first use a <strong>K-nearest-neighbors</strong> model to get candidate
+                  neighbors in the embedding space, then apply a much stricter cosine similarity filter
                   (only subreddits above a very high similarity threshold are accepted).
                   <br>
                   <br>
@@ -2453,12 +2440,11 @@ footer-extra:
                   highly cohesive political cluster rather than a loose cloud of vaguely related communities.
                   <br>
                   <br>
-                  In short: KNN proposes nearby candidates, cosine similarity decides who truly belongs and the iterative
+                  In short: KNN proposes nearby candidates, cosine similarity decides who truly belongs, and the iterative
                   expansion builds a clean political core around our seed subreddit.
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
